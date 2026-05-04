@@ -1,0 +1,75 @@
+{
+	"id": "92597e74-c3f6-4203-b861-346280fba8ba",
+	"name": "Utho — Environment",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "https://api.utho.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "api_key",
+			"value": "PASTE_YOUR_TOKEN_HERE",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "cloudid",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "lbid",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "vpcid",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "firewallid",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "k8sid",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "dbid",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "dnsid",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "bucketname",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-05-04T11:04:50.329Z",
+	"_postman_exported_using": "Postman/11.72.3"
+}
