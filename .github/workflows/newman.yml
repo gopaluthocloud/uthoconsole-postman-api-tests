@@ -18,4 +18,4 @@ jobs:
 
       - name: Run Postman Collection
         run: |
-          newman run collection.json
+          newman run collection.json -e utho-environment.json
