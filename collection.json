@@ -123,7 +123,7 @@
 					"name": "account",
 					"item": [
 						{
-							"name": "[GET] Info",
+							"name": "Info",
 							"request": {
 								"method": "GET",
 								"header": [

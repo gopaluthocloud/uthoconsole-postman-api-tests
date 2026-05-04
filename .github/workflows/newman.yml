@@ -18,10 +18,8 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install tools
-        run: |
-          npm install -g newman
-          npm install -g postman-to-openapi
+      - name: Install Newman
+        run: npm install -g newman
 
       - name: Run Postman tests
         run: |
@@ -29,7 +27,7 @@ jobs:
 
       - name: Convert to OpenAPI YAML
         run: |
-          postman-to-openapi collection.json -f openapi.yaml
+          npx postman-to-openapi collection.json -f openapi.yaml
 
       - name: Commit Swagger file
         run: |
