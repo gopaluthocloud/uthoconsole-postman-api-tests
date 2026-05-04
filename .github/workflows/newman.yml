@@ -13,6 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
       - name: Install tools
         run: |
           npm install -g newman
@@ -24,12 +29,12 @@ jobs:
 
       - name: Convert to OpenAPI YAML
         run: |
-          p2o collection.json -f openapi.yaml
+          postman-to-openapi collection.json -f openapi.yaml
 
       - name: Commit Swagger file
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "gopaluthocloud"
+          git config --global user.email "gopal.s@utho.com"
           git add openapi.yaml
           git commit -m "Update OpenAPI spec" || echo "No changes"
           git push
