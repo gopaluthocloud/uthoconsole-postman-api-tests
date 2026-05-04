@@ -1,0 +1,7185 @@
+{
+	"info": {
+		"_postman_id": "bf8371ed-3831-41d1-951e-f6df7bd13e70",
+		"name": "UthoConsole - API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44911798",
+		"_collection_link": "https://gopal-5980540.postman.co/workspace/testing~8c65947e-0415-4838-9ead-81e78e58be23/collection/44911798-bf8371ed-3831-41d1-951e-f6df7bd13e70?action=share&source=collection_link&creator=44911798"
+	},
+	"item": [
+		{
+			"name": "Account and Auth",
+			"item": [
+				{
+					"name": "2fa",
+					"item": [
+						{
+							"name": "[GET] 2fa",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/2fa",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"2fa"
+									]
+								},
+								"description": "**API**: `2fa`   |   **Action**: `2fa`\n\nMapped from nginx route: `^/v2/2fa?$`\nBackend: `/cloud_api.php?api=2fa&action=2fa`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Resend",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/2fa/resend",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"2fa",
+										"resend"
+									]
+								},
+								"description": "**API**: `2fa`   |   **Action**: `resend`\n\nMapped from nginx route: `^/v2/2fa/resend?$`\nBackend: `/cloud_api.php?api=2fa&action=resend`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `2fa` (2 endpoints)"
+				},
+				{
+					"name": "access",
+					"item": [
+						{
+							"name": "[GET] List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/amaccess",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"amaccess"
+									]
+								},
+								"description": "**API**: `access`   |   **Action**: `list`\n\nMapped from nginx route: `^/v2/amaccess/?$`\nBackend: `/cloud_api.php?api=access&action=list?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `access` (1 endpoints)"
+				},
+				{
+					"name": "account",
+					"item": [
+						{
+							"name": "[GET] Info",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/:app/account/info",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										":app",
+										"account",
+										"info"
+									],
+									"variable": [
+										{
+											"key": "app",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `info`\n\nMapped from nginx route: `^/v2/([^/]+)/account/info/?$`\nBackend: `/cloud_api.php?app=$1&api=account&action=info?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Update2fa",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"app_base_auth\": \"\",\n  \"managed\": \"\",\n  \"twofa\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/2fa",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"2fa"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `update2fa`\n\nMapped from nginx route: `^/v2/account/2fa/?$`\nBackend: `/cloud_api.php?app=$1&api=account&action=update2fa?`\n\nBody parameters detected from handler source:\n- `app_base_auth`\n- `managed`\n- `twofa`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/profile",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"profile"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `profile`\n\nMapped from nginx route: `^/v2/account/profile/?$`\nBackend: `/cloud_api.php?app=$1&api=account&action=profile?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Kyc",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/kyc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"kyc"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `kyc`\n\nMapped from nginx route: `^/v2/account/kyc/?$`\nBackend: `/cloud_api.php?api=account&action=kyc?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Kycstatus",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/kyc/:requestid/status",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"kyc",
+										":requestid",
+										"status"
+									],
+									"variable": [
+										{
+											"key": "requestid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `kycstatus`\n\nMapped from nginx route: `^/v2/account/kyc/([^/]+)/status/?$`\nBackend: `/cloud_api.php?api=account&requestid=$1&action=kycstatus?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Kycsave",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/:userid/kyc/handler",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										":userid",
+										"kyc",
+										"handler"
+									],
+									"variable": [
+										{
+											"key": "userid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `kycsave`\n\nMapped from nginx route: `^/v2/account/([0-9]+)/kyc/handler/?$`\nBackend: `/cloud_api.php?api=account&userid=$1&action=kycsave?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Kycnew",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"currency\": \"\",\n  \"slug\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/kyc/new",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"kyc",
+										"new"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `kycnew`\n\nMapped from nginx route: `^/v2/account/kyc/new?$`\nBackend: `/cloud_api.php?api=account&action=kycnew?`\n\nBody parameters detected from handler source:\n- `currency`\n- `slug`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Oauth",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/oauth",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"oauth"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `oauth`\n\nMapped from nginx route: `^/v2/oauth/?$`\nBackend: `/cloud_api.php?api=account&action=oauth?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Applycoupon",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"coupon\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/applycoupon",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"applycoupon"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `applycoupon`\n\nMapped from nginx route: `^/v2/account/applycoupon/?$`\nBackend: `/cloud_api.php?api=account&action=applycoupon?`\n\nBody parameters detected from handler source:\n- `coupon`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Info",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/info",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"info"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `info`\n\nMapped from nginx route: `^/v2/account/info/?$`\nBackend: `/cloud_api.php?api=account&action=info?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Close",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirm\": \"\",\n  \"confirm_name\": \"\",\n  \"email\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/close",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"close"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `close`\n\nMapped from nginx route: `^/v2/account/close/?$`\nBackend: `/cloud_api.php?api=account&action=close?`\n\nBody parameters detected from handler source:\n- `confirm`\n- `confirm_name`\n- `email`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Signup",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/signup",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"signup"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `signup`\n\nMapped from nginx route: `^/v2/account/signup/?$`\nBackend: `/cloud_api.php?api=account&action=signup?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Resetpassword",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"\",\n  \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/reset/password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"reset",
+										"password"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `resetpassword`\n\nMapped from nginx route: `^/v2/account/reset/password/?$`\nBackend: `/cloud_api.php?api=account&action=resetpassword?`\n\nBody parameters detected from handler source:\n- `email`\n- `password`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Updatemobile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"mobile\": \"\",\n  \"mobilecc\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/update/mobile/:mobilecc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"update",
+										"mobile",
+										":mobilecc"
+									],
+									"variable": [
+										{
+											"key": "mobilecc",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `updatemobile`\n\nMapped from nginx route: `^/v2/account/update/mobile/([^/]+)/?$`\nBackend: `/cloud_api.php?api=account&action=updatemobile&mobilecc=$1?`\n\nBody parameters detected from handler source:\n- `mobile`\n- `mobilecc`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Updatemobile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"mobile\": \"\",\n  \"mobilecc\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/update/mobile",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"update",
+										"mobile"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `updatemobile`\n\nMapped from nginx route: `^/v2/account/update/mobile/?$`\nBackend: `/cloud_api.php?api=account&action=updatemobile&mobilecc=$1?`\n\nBody parameters detected from handler source:\n- `mobile`\n- `mobilecc`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Otpverify",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/otp/verify",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"otp",
+										"verify"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `otpverify`\n\nMapped from nginx route: `^/v2/account/otp/verify/?$`\nBackend: `/cloud_api.php?api=account&action=otpverify?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Sendotp",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"invoiceid\": \"\",\n  \"otpcode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/otp/sendotp",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"otp",
+										"sendotp"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `sendotp`\n\nMapped from nginx route: `^/v2/account/otp/sendotp/?$`\nBackend: `/cloud_api.php?api=account&action=sendotp?`\n\nBody parameters detected from handler source:\n- `amount`\n- `invoiceid`\n- `otpcode`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Otpresendtext",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/otp/resendtext",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"otp",
+										"resendtext"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `otpresendtext`\n\nMapped from nginx route: `^/v2/account/otp/resendtext/?$`\nBackend: `/cloud_api.php?api=account&action=otpresendtext?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Otpresendvoice",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/otp/resendvoice",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"otp",
+										"resendvoice"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `otpresendvoice`\n\nMapped from nginx route: `^/v2/account/otp/resendvoice/?$`\nBackend: `/cloud_api.php?api=account&action=otpresendvoice?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Updatepassword",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"coupon\": \"\",\n  \"password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/update/password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"update",
+										"password"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `updatepassword`\n\nMapped from nginx route: `^/v2/account/update/password/?$`\nBackend: `/cloud_api.php?api=account&action=updatepassword?`\n\nBody parameters detected from handler source:\n- `coupon`\n- `password`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"address\": \"\",\n  \"city\": \"\",\n  \"company\": \"\",\n  \"country\": \"\",\n  \"currency\": \"\",\n  \"email\": \"\",\n  \"fullname\": \"\",\n  \"gstnumber\": \"\",\n  \"mobile\": \"\",\n  \"mobilecc\": \"\",\n  \"postcode\": \"\",\n  \"singleinvoice\": \"\",\n  \"state\": \"\",\n  \"supportneed_businesstype\": \"\",\n  \"supportneed_title\": \"\",\n  \"supportneed_usecase\": \"\",\n  \"type\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/update",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"update"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `update`\n\nMapped from nginx route: `^/v2/account/update/?$`\nBackend: `/cloud_api.php?api=account&action=update?`\n\nBody parameters detected from handler source:\n- `address`\n- `city`\n- `company`\n- `country`\n- `currency`\n- `email`\n- `fullname`\n- `gstnumber`\n- `mobile`\n- `mobilecc`\n- `postcode`\n- `singleinvoice`\n- `state`\n- `supportneed_businesstype`\n- `supportneed_title`\n- `supportneed_usecase`\n- `type`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] UpdateVerion",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"address\": \"\",\n  \"city\": \"\",\n  \"company\": \"\",\n  \"country\": \"\",\n  \"currency\": \"\",\n  \"email\": \"\",\n  \"fullname\": \"\",\n  \"gstnumber\": \"\",\n  \"mobile\": \"\",\n  \"mobilecc\": \"\",\n  \"postcode\": \"\",\n  \"state\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/version/update",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"version",
+										"update"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `updateVerion`\n\nMapped from nginx route: `^/v2/account/version/update/?$`\nBackend: `/cloud_api.php?api=account&action=updateVerion?`\n\nBody parameters detected from handler source:\n- `address`\n- `city`\n- `company`\n- `country`\n- `currency`\n- `email`\n- `fullname`\n- `gstnumber`\n- `mobile`\n- `mobilecc`\n- `postcode`\n- `state`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Updateaffiliate",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"coupon\": \"\",\n  \"managed\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/updateaffiliate/:affiliate_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"updateaffiliate",
+										":affiliate_id"
+									],
+									"variable": [
+										{
+											"key": "affiliate_id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `updateaffiliate`\n\nMapped from nginx route: `^/v2/account/updateaffiliate/([0-9]+)/?$`\nBackend: `/cloud_api.php?api=account&action=updateaffiliate&affiliate_id=$1?`\n\nBody parameters detected from handler source:\n- `coupon`\n- `managed`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Loginotp",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/loginotp",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"loginotp"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `loginotp`\n\nMapped from nginx route: `^/v2/account/loginotp/?$`\nBackend: `/cloud_api.php?api=account&action=loginotp?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Verifyloginotp",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"currency\": \"\",\n  \"email\": \"\",\n  \"otp\": \"\",\n  \"slug\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/account/loginotpverify",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"loginotpverify"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `verifyloginotp`\n\nMapped from nginx route: `^/v2/account/loginotpverify/?$`\nBackend: `/cloud_api.php?api=account&action=verifyloginotp?`\n\nBody parameters detected from handler source:\n- `currency`\n- `email`\n- `otp`\n- `slug`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Iso",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/iso",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"iso"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `iso`\n\nMapped from nginx route: `^/v2/iso/?$`\nBackend: `/cloud_api.php?api=account&action=iso?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Iso",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/iso/:dc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"iso",
+										":dc"
+									],
+									"variable": [
+										{
+											"key": "dc",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `iso`\n\nMapped from nginx route: `^/v2/iso/([^/]+)/?$`\nBackend: `/cloud_api.php?api=account&action=iso&dc=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Deleteiso",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/iso/:file/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"iso",
+										":file",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "file",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `deleteiso`\n\nMapped from nginx route: `^/v2/iso/([^/]+)/delete/?$`\nBackend: `/cloud_api.php?api=account&action=deleteiso&file=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Image",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/image",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"image"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `image`\n\nMapped from nginx route: `^/v2/image/?$`\nBackend: `/cloud_api.php?api=account&action=image?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Image",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/image/:dc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"image",
+										":dc"
+									],
+									"variable": [
+										{
+											"key": "dc",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `image`\n\nMapped from nginx route: `^/v2/image/([^/]+)/?$`\nBackend: `/cloud_api.php?api=account&action=image&dc=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Deleteimage",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/image/:file/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"image",
+										":file",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "file",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `deleteimage`\n\nMapped from nginx route: `^/v2/image/([^/]+)/delete/?$`\nBackend: `/cloud_api.php?api=account&action=deleteimage&file=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Snapshot",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/snapshot",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"snapshot"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `snapshot`\n\nMapped from nginx route: `^/v2/snapshot/?$`\nBackend: `/cloud_api.php?api=account&action=snapshot?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Snapshot",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/snapshot/:dc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"snapshot",
+										":dc"
+									],
+									"variable": [
+										{
+											"key": "dc",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `snapshot`\n\nMapped from nginx route: `^/v2/snapshot/([^/]+)/?$`\nBackend: `/cloud_api.php?api=account&action=snapshot&dc=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Backups",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/backups",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"backups"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `backups`\n\nMapped from nginx route: `^/v2/backups/?$`\nBackend: `/cloud_api.php?api=account&action=backups?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Backups",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/backups/:dc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"backups",
+										":dc"
+									],
+									"variable": [
+										{
+											"key": "dc",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `backups`\n\nMapped from nginx route: `^/v2/backups/([^/]+)/?$`\nBackend: `/cloud_api.php?api=account&action=backups&dc=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Currency",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/currency/:currency",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"currency",
+										":currency"
+									],
+									"variable": [
+										{
+											"key": "currency",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `currency`\n\nMapped from nginx route: `^/v2/currency/([^/]+)/?$`\nBackend: `/cloud_api.php?api=account&action=currency&currency=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Hourlystats",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/hourlystats",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"hourlystats"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `hourlystats`\n\nMapped from nginx route: `^/v2/hourlystats/?$`\nBackend: `/cloud_api.php?api=account&action=hourlystats?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Getcoupon",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"\",\n  \"plan\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/coupon/:code",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"coupon",
+										":code"
+									],
+									"variable": [
+										{
+											"key": "code",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `getcoupon`\n\nMapped from nginx route: `^/v2/coupon/([^/]+)/?$`\nBackend: `/cloud_api.php?api=account&action=getcoupon&code=$1`\n\nBody parameters detected from handler source:\n- `code`\n- `plan`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Getcoupon",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"\",\n  \"plan\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/coupon",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"coupon"
+									]
+								},
+								"description": "**API**: `account`   |   **Action**: `getcoupon`\n\nMapped from nginx route: `^/v2/coupon/?$`\nBackend: `/cloud_api.php?api=account&action=getcoupon`\n\nBody parameters detected from handler source:\n- `code`\n- `plan`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `account` (39 endpoints)"
+				},
+				{
+					"name": "accountplatform",
+					"item": [
+						{
+							"name": "[GET] Info",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/:app/accountplatform/info",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										":app",
+										"accountplatform",
+										"info"
+									],
+									"variable": [
+										{
+											"key": "app",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `accountplatform`   |   **Action**: `info`\n\nMapped from nginx route: `^/v2/([^/]+)/accountplatform/info/?$`\nBackend: `/cloud_api.php?app=$1&api=accountplatform&action=info?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `accountplatform` (1 endpoints)"
+				},
+				{
+					"name": "activesessions",
+					"item": [
+						{
+							"name": "[GET] Accountsessions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/activesessions",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"activesessions"
+									]
+								},
+								"description": "**API**: `activesessions`   |   **Action**: `accountsessions`\n\nMapped from nginx route: `^/v2/activesessions/?$`\nBackend: `/cloud_api.php?api=activesessions&action=accountsessions?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `activesessions` (1 endpoints)"
+				},
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "[GET] Info",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/api",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"api"
+									]
+								},
+								"description": "**API**: `api`   |   **Action**: `info`\n\nMapped from nginx route: `^/v2/api/?$`\nBackend: `/cloud_api.php?api=api&action=info?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Generate",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"cardid\": \"\",\n  \"code\": \"\",\n  \"currency\": \"\",\n  \"gateway\": \"\",\n  \"invoiceid\": \"\",\n  \"name\": \"\",\n  \"write\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/api/generate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"api",
+										"generate"
+									]
+								},
+								"description": "**API**: `api`   |   **Action**: `generate`\n\nMapped from nginx route: `^/v2/api/generate/?$`\nBackend: `/cloud_api.php?api=api&action=generate?`\n\nBody parameters detected from handler source:\n- `amount`\n- `cardid`\n- `code`\n- `currency`\n- `gateway`\n- `invoiceid`\n- `name`\n- `write`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirm\": \"\",\n  \"id\": \"\",\n  \"userid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/api/:id/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"api",
+										":id",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `api`   |   **Action**: `delete`\n\nMapped from nginx route: `^/v2/api/([^/]+)/delete/?$`\nBackend: `/cloud_api.php?api=api&action=delete&id=$1?`\n\nBody parameters detected from handler source:\n- `confirm`\n- `id`\n- `userid`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `api` (3 endpoints)"
+				},
+				{
+					"name": "appauth",
+					"item": [
+						{
+							"name": "[GET] Appauth (root)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/appauth",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"appauth"
+									]
+								},
+								"description": "**API**: `appauth`   |   **Action**: `(default)`\n\nMapped from nginx route: `^/v2/appauth/?$`\nBackend: `/cloud_api.php?api=appauth?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `appauth` (1 endpoints)"
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "[GET] Login",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/:app/auth",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										":app",
+										"auth"
+									],
+									"variable": [
+										{
+											"key": "app",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `auth`   |   **Action**: `login`\n\nMapped from nginx route: `^/v2/([^/]+)/auth/?$`\nBackend: `/cloud_api.php?app=$1&api=auth&action=login?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Login",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/auth",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"auth"
+									]
+								},
+								"description": "**API**: `auth`   |   **Action**: `login`\n\nMapped from nginx route: `^/v2/auth/?$`\nBackend: `/cloud_api.php?api=auth&action=login?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `auth` (2 endpoints)"
+				},
+				{
+					"name": "key",
+					"item": [
+						{
+							"name": "[GET] Info",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/key",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"key"
+									]
+								},
+								"description": "**API**: `key`   |   **Action**: `info`\n\nMapped from nginx route: `^/v2/key/?$`\nBackend: `/cloud_api.php?api=key&action=info?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Generate",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirm\": \"\",\n  \"image\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/key/generate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"key",
+										"generate"
+									]
+								},
+								"description": "**API**: `key`   |   **Action**: `generate`\n\nMapped from nginx route: `^/v2/key/generate/?$`\nBackend: `/cloud_api.php?api=key&action=generate?`\n\nBody parameters detected from handler source:\n- `confirm`\n- `image`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Import",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirm\": \"\",\n  \"image\": \"\",\n  \"name\": \"\",\n  \"sshkey\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/key/import",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"key",
+										"import"
+									]
+								},
+								"description": "**API**: `key`   |   **Action**: `import`\n\nMapped from nginx route: `^/v2/key/import/?$`\nBackend: `/cloud_api.php?api=key&action=import?`\n\nBody parameters detected from handler source:\n- `confirm`\n- `image`\n- `name`\n- `sshkey`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirm\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/key/:id/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"key",
+										":id",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `key`   |   **Action**: `delete`\n\nMapped from nginx route: `^/v2/key/([^/]+)/delete/?$`\nBackend: `/cloud_api.php?api=key&action=delete&id=$1?`\n\nBody parameters detected from handler source:\n- `confirm`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `key` (4 endpoints)"
+				},
+				{
+					"name": "logout",
+					"item": [
+						{
+							"name": "[GET] Logout",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/logout",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"logout"
+									]
+								},
+								"description": "**API**: `logout`   |   **Action**: `logout`\n\nMapped from nginx route: `^/v2/logout/?$`\nBackend: `/cloud_api.php?api=logout&action=logout?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `logout` (1 endpoints)"
+				},
+				{
+					"name": "platform",
+					"item": [
+						{
+							"name": "[GET] Platform",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/account/platform",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"account",
+										"platform"
+									]
+								},
+								"description": "**API**: `platform`   |   **Action**: `platform`\n\nMapped from nginx route: `^/v2/account/platform/?$`\nBackend: `/cloud_api.php?api=platform&action=platform?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `platform` (1 endpoints)"
+				},
+				{
+					"name": "switchaccessm",
+					"item": [
+						{
+							"name": "[GET] Accessanotheraccount",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/switchaccess/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"switchaccess",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `switchaccessm`   |   **Action**: `accessanotheraccount`\n\nMapped from nginx route: `^/v2/switchaccess/([^/]+)/?$`\nBackend: `/cloud_api.php?api=switchaccessm&id=$1&action=accessanotheraccount?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `switchaccessm` (1 endpoints)"
+				},
+				{
+					"name": "switchaccessselfm",
+					"item": [
+						{
+							"name": "[GET] Accessself",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/switchaccessself/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"switchaccessself",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `switchaccessselfm`   |   **Action**: `accessself`\n\nMapped from nginx route: `^/v2/switchaccessself/([^/]+)/?$`\nBackend: `/cloud_api.php?api=switchaccessselfm&id=$1&action=accessself?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `switchaccessselfm` (1 endpoints)"
+				},
+				{
+					"name": "transfer",
+					"item": [
+						{
+							"name": "[POST] Processtoken",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/transfer/process",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"transfer",
+										"process"
+									]
+								},
+								"description": "**API**: `transfer`   |   **Action**: `processtoken`\n\nMapped from nginx route: `^/v2/transfer/process/?$`\nBackend: `/cloud_api.php?api=transfer&action=processtoken?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Gettoken",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/transfer/:type/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"transfer",
+										":type",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "type",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `transfer`   |   **Action**: `gettoken`\n\nMapped from nginx route: `^/v2/transfer/([^/]+)/([^/]+)/?$`\nBackend: `/cloud_api.php?api=transfer&action=gettoken&type=$1&id=$2?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `transfer` (2 endpoints)"
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "[GET] Activity",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/activity",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"activity"
+									]
+								},
+								"description": "**API**: `user`   |   **Action**: `activity`\n\nMapped from nginx route: `^/v2/activity/?$`\nBackend: `/cloud_api.php?api=user&action=activity?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Activate",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"code\": \"\",\n  \"email\": \"\",\n  \"otp\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/user/activate/:activationtoken",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"user",
+										"activate",
+										":activationtoken"
+									],
+									"variable": [
+										{
+											"key": "activationtoken",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `user`   |   **Action**: `activate`\n\nMapped from nginx route: `^/v2/user/activate/([^/]+)/?$`\nBackend: `/cloud_api.php?api=user&activationtoken=$1&action=activate?`\n\nBody parameters detected from handler source:\n- `code`\n- `email`\n- `otp`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Subusers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/user",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"user"
+									]
+								},
+								"description": "**API**: `user`   |   **Action**: `subusers`\n\nMapped from nginx route: `^/v2/user/?$`\nBackend: `/cloud_api.php?api=user&action=subusers?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Subusers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/user/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"user",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `user`   |   **Action**: `subusers`\n\nMapped from nginx route: `^/v2/user/([0-9]+)?$`\nBackend: `/cloud_api.php?api=user&id=$1&action=subusers?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `user` (4 endpoints)"
+				}
+			]
+		},
+		{
+			"name": "Autoscaling",
+			"item": []
+		},
+		{
+			"name": "Billing",
+			"item": [
+				{
+					"name": "billing",
+					"item": [
+						{
+							"name": "[GET] Payment verify",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/payment/verify",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"payment",
+										"verify"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `payment_verify`\n\nMapped from nginx route: `^/v2/billing/payment/verify/?$`\nBackend: `/cloud_api.php?api=billing&action=payment_verify?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Tds",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/tds",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"tds"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `tds`\n\nMapped from nginx route: `^/v2/billing/tds/?$`\nBackend: `/cloud_api.php?api=billing&action=tds?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Bankdetails",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/bankdetails",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"bankdetails"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `bankdetails`\n\nMapped from nginx route: `^/v2/billing/bankdetails/?$`\nBackend: `/cloud_api.php?api=billing&action=bankdetails?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Applycredit",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"invoiceid\": \"\",\n  \"otpcode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/billing/applycredit",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"applycredit"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `applycredit`\n\nMapped from nginx route: `^/v2/billing/applycredit/?$`\nBackend: `/cloud_api.php?api=billing&action=applycredit?`\n\nBody parameters detected from handler source:\n- `amount`\n- `invoiceid`\n- `otpcode`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Invoices",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `invoices`\n\nMapped from nginx route: `^/v2/billing/?$`\nBackend: `/cloud_api.php?api=billing&action=invoices?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Zohoinvoices",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/zohobilling",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"zohobilling"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `zohoinvoices`\n\nMapped from nginx route: `^/v2/zohobilling/?$`\nBackend: `/cloud_api.php?api=billing&action=zohoinvoices?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Unbilledinvoices",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/unbilled",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"unbilled"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `unbilledinvoices`\n\nMapped from nginx route: `^/v2/billing/unbilled/?$`\nBackend: `/cloud_api.php?api=billing&action=unbilledinvoices?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Bankpayment",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/bankpayment",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"bankpayment"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `bankpayment`\n\nMapped from nginx route: `^/v2/billing/bankpayment/?$`\nBackend: `/cloud_api.php?api=billing&action=bankpayment?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Addpayment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"base_amount\": \"\",\n  \"currency\": \"\",\n  \"gateway\": \"\",\n  \"invoiceid\": \"\",\n  \"platform\": \"\",\n  \"transid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/billing/addpayment",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"addpayment"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `addpayment`\n\nMapped from nginx route: `^/v2/billing/addpayment/?$`\nBackend: `/cloud_api.php?api=billing&action=addpayment?`\n\nBody parameters detected from handler source:\n- `amount`\n- `base_amount`\n- `currency`\n- `gateway`\n- `invoiceid`\n- `platform`\n- `transid`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Addcredit",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"base_amount\": \"\",\n  \"currency\": \"\",\n  \"gateway\": \"\",\n  \"invoiceid\": \"\",\n  \"platform\": \"\",\n  \"transid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/billing/addcredit",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"addcredit"
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `addcredit`\n\nMapped from nginx route: `^/v2/billing/addcredit/?$`\nBackend: `/cloud_api.php?api=billing&action=addcredit?`\n\nBody parameters detected from handler source:\n- `amount`\n- `base_amount`\n- `currency`\n- `gateway`\n- `invoiceid`\n- `platform`\n- `transid`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] View",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/:invoiceid",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										":invoiceid"
+									],
+									"variable": [
+										{
+											"key": "invoiceid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `billing`   |   **Action**: `view`\n\nMapped from nginx route: `^/v2/billing/([^/]+)/?$`\nBackend: `/cloud_api.php?api=billing&action=view&invoiceid=$1?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `billing` (11 endpoints)"
+				},
+				{
+					"name": "invoice",
+					"item": [
+						{
+							"name": "[GET] Paywithcard",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/paywithcard/:invoiceid",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"paywithcard",
+										":invoiceid"
+									],
+									"variable": [
+										{
+											"key": "invoiceid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `invoice`   |   **Action**: `paywithcard`\n\nMapped from nginx route: `^/v2/paywithcard/([0-9]+)/?$`\nBackend: `/cloud_api.php?api=invoice&action=paywithcard&invoiceid=$1?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `invoice` (1 endpoints)"
+				},
+				{
+					"name": "paymentgateway",
+					"item": [
+						{
+							"name": "[GET] Stripe",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/stripe/create_session",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"stripe",
+										"create_session"
+									]
+								},
+								"description": "**API**: `paymentgateway`   |   **Action**: `stripe`\n\nMapped from nginx route: `^/v2/billing/stripe/create_session/?$`\nBackend: `/cloud_api.php?api=paymentgateway&action=stripe?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Paypal",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/paypal/create_session",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"paypal",
+										"create_session"
+									]
+								},
+								"description": "**API**: `paymentgateway`   |   **Action**: `paypal`\n\nMapped from nginx route: `^/v2/billing/paypal/create_session/?$`\nBackend: `/cloud_api.php?api=paymentgateway&action=paypal?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Payu",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/payu/initiate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"payu",
+										"initiate"
+									]
+								},
+								"description": "**API**: `paymentgateway`   |   **Action**: `payu`\n\nMapped from nginx route: `^/v2/billing/payu/initiate/?$`\nBackend: `/cloud_api.php?api=paymentgateway&action=payu?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `paymentgateway` (3 endpoints)"
+				},
+				{
+					"name": "razorpay",
+					"item": [
+						{
+							"name": "[GET] Razorpay (root)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/billing/upi-in",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"billing",
+										"upi-in"
+									]
+								},
+								"description": "**API**: `razorpay`   |   **Action**: `(default)`\n\nMapped from nginx route: `^/v2/billing/upi-in/?$`\nBackend: `/cloud_api.php?api=razorpay?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Addtoken",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"invoiceid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/razorpay/addtoken",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"razorpay",
+										"addtoken"
+									]
+								},
+								"description": "**API**: `razorpay`   |   **Action**: `addtoken`\n\nMapped from nginx route: `^/v2/razorpay/addtoken/?$`\nBackend: `/cloud_api.php?api=razorpay&action=addtoken?`\n\nBody parameters detected from handler source:\n- `amount`\n- `invoiceid`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Createorder",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"invoiceid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/razorpay/createorder",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"razorpay",
+										"createorder"
+									]
+								},
+								"description": "**API**: `razorpay`   |   **Action**: `createorder`\n\nMapped from nginx route: `^/v2/razorpay/createorder/?$`\nBackend: `/cloud_api.php?api=razorpay&action=createorder?`\n\nBody parameters detected from handler source:\n- `amount`\n- `invoiceid`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Listcard",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/razorpay/listcard",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"razorpay",
+										"listcard"
+									]
+								},
+								"description": "**API**: `razorpay`   |   **Action**: `listcard`\n\nMapped from nginx route: `^/v2/razorpay/listcard/?$`\nBackend: `/cloud_api.php?api=razorpay&action=listcard?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Deletecard",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/razorpay/:cardid/deletecard",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"razorpay",
+										":cardid",
+										"deletecard"
+									],
+									"variable": [
+										{
+											"key": "cardid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `razorpay`   |   **Action**: `deletecard`\n\nMapped from nginx route: `^/v2/razorpay/([0-9]+)/deletecard/?$`\nBackend: `/cloud_api.php?api=razorpay&action=deletecard&cardid=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Addfund",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"cardid\": \"\",\n  \"code\": \"\",\n  \"currency\": \"\",\n  \"gateway\": \"\",\n  \"invoiceid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/addfund",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"addfund"
+									]
+								},
+								"description": "**API**: `razorpay`   |   **Action**: `addfund`\n\nMapped from nginx route: `^/v2/addfund/?$`\nBackend: `/cloud_api.php?api=razorpay&action=addfund?`\n\nBody parameters detected from handler source:\n- `amount`\n- `cardid`\n- `code`\n- `currency`\n- `gateway`\n- `invoiceid`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `razorpay` (6 endpoints)"
+				},
+				{
+					"name": "stripe",
+					"item": [
+						{
+							"name": "[POST] Addfund",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"cardid\": \"\",\n  \"code\": \"\",\n  \"currency\": \"\",\n  \"gateway\": \"\",\n  \"invoiceid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/addfundstripe",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"addfundstripe"
+									]
+								},
+								"description": "**API**: `stripe`   |   **Action**: `addfund`\n\nMapped from nginx route: `^/v2/addfundstripe/?$`\nBackend: `/cloud_api.php?api=stripe&action=addfund?`\n\nBody parameters detected from handler source:\n- `amount`\n- `cardid`\n- `code`\n- `currency`\n- `gateway`\n- `invoiceid`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Savecard",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"invoiceid\": \"\",\n  \"otpcode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/stripe/savecard/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"stripe",
+										"savecard",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `stripe`   |   **Action**: `savecard`\n\nMapped from nginx route: `^/v2/stripe/savecard/([^/]+)/?$`\nBackend: `/cloud_api.php?api=stripe&action=savecard&id=$1?`\n\nBody parameters detected from handler source:\n- `amount`\n- `invoiceid`\n- `otpcode`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Addtoken",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"invoiceid\": \"\",\n  \"otpcode\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/stripe/addtoken/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"stripe",
+										"addtoken",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `stripe`   |   **Action**: `addtoken`\n\nMapped from nginx route: `^/v2/stripe/addtoken/([^/]+)/?$`\nBackend: `/cloud_api.php?api=stripe&action=addtoken&id=$1?`\n\nBody parameters detected from handler source:\n- `amount`\n- `invoiceid`\n- `otpcode`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Listcard",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/stripe/listcard",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"stripe",
+										"listcard"
+									]
+								},
+								"description": "**API**: `stripe`   |   **Action**: `listcard`\n\nMapped from nginx route: `^/v2/stripe/listcard/?$`\nBackend: `/cloud_api.php?api=stripe&action=listcard?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Deletecard",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/stripe/deletecard",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"stripe",
+										"deletecard"
+									]
+								},
+								"description": "**API**: `stripe`   |   **Action**: `deletecard`\n\nMapped from nginx route: `^/v2/stripe/deletecard/?$`\nBackend: `/cloud_api.php?api=stripe&action=deletecard?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Deletecard",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/stripe/:cardid/deletecard",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"stripe",
+										":cardid",
+										"deletecard"
+									],
+									"variable": [
+										{
+											"key": "cardid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `stripe`   |   **Action**: `deletecard`\n\nMapped from nginx route: `^/v2/stripe/([0-9]+)/deletecard/?$`\nBackend: `/cloud_api.php?api=stripe&action=deletecard&cardid=$1?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `stripe` (6 endpoints)"
+				},
+				{
+					"name": "tds",
+					"item": [
+						{
+							"name": "[GET] Tds (root)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/tds",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"tds"
+									]
+								},
+								"description": "**API**: `tds`   |   **Action**: `(default)`\n\nMapped from nginx route: `^/v2/tds/?$`\nBackend: `/cloud_api.php?api=tds?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `tds` (1 endpoints)"
+				}
+			]
+		},
+		{
+			"name": "Cloud Servers",
+			"item": [
+				{
+					"name": "backup",
+					"item": [
+						{
+							"name": "[DELETE] Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/backup/:backupid/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"backup",
+										":backupid",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "backupid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `backup`   |   **Action**: `delete`\n\nMapped from nginx route: `^/v2/backup/([0-9]+)/delete/?$`\nBackend: `/cloud_api.php?api=backup&backupid=$1&action=delete?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Backuplist",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/backup",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"backup"
+									]
+								},
+								"description": "**API**: `backup`   |   **Action**: `backuplist`\n\nMapped from nginx route: `^/v2/backup/?$`\nBackend: `/cloud_api.php?api=backup&action=backuplist?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Backuplist",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/backup/:backupid",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"backup",
+										":backupid"
+									],
+									"variable": [
+										{
+											"key": "backupid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `backup`   |   **Action**: `backuplist`\n\nMapped from nginx route: `^/v2/backup/([0-9]+)/?$`\nBackend: `/cloud_api.php?api=backup&action=backuplist&backupid=$1?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Restore",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/backup/:backupid/restore",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"backup",
+										":backupid",
+										"restore"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "backupid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `backup`   |   **Action**: `restore`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/backup/([0-9]+)/restore/?$`\nBackend: `/cloud_api.php?api=backup&cloudid=$1&backupid=$2&action=restore?`\n\nBody parameters detected from handler source:\n- `name`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/backup/:backupid/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"backup",
+										":backupid",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "backupid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `backup`   |   **Action**: `delete`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/backup/([0-9]+)/delete/?$`\nBackend: `/cloud_api.php?api=backup&cloudid=$1&backupid=$2&action=delete?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `backup` (5 endpoints)"
+				},
+				{
+					"name": "cloud",
+					"item": [
+						{
+							"name": "[POST] Updatestorage",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"bus\": \"\",\n  \"type\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/storage/:id/update",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"storage",
+										":id",
+										"update"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "id",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `updatestorage`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/storage/([^/]+)/update?$`\nBackend: `/cloud_api.php?api=cloud&action=updatestorage&cloudid=$1&id=$2?`\n\nBody parameters detected from handler source:\n- `bus`\n- `type`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Bandwidth",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/bandwidth/:cycle",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"bandwidth",
+										":cycle"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "cycle",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `bandwidth`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/bandwidth/([^/]+)?$`\nBackend: `/cloud_api.php?api=cloud&action=bandwidth&cloudid=$1&cycle=$2?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Iscloudaccess",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/iscloudaccess/:cloudid",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"iscloudaccess",
+										":cloudid"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `iscloudaccess`\n\nMapped from nginx route: `^/v2/iscloudaccess/([0-9]+)/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=iscloudaccess?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Getbillingcycle",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/getbillingcycle",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"getbillingcycle"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `getbillingcycle`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/getbillingcycle/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=getbillingcycle?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Billingcycle",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/billingcycle",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"billingcycle"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `billingcycle`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/billingcycle/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=billingcycle?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Create nat",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/network/:ip/createnat",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"network",
+										":ip",
+										"createnat"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "ip",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `create_nat`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/network/([^/]+)/createnat/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&ip=$2&action=create_nat?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Disablenat",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/network/:ip/deletenat",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"network",
+										":ip",
+										"deletenat"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "ip",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `disablenat`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/network/([^/]+)/deletenat/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&ip=$2&action=disablenat?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Updatename",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"\",\n  \"plan\": \"\",\n  \"type\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/name",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"name"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `updatename`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/name?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=updatename?`\n\nBody parameters detected from handler source:\n- `name`\n- `plan`\n- `type`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Gpu",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/gpu",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"gpu"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `gpu`\n\nMapped from nginx route: `^/v2/cloud/([^/]+)/gpu/?$`\nBackend: `/cloud_api.php?api=cloud&gpuid=$2&cloudid=$1&action=gpu?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Images",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/images",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"images"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `images`\n\nMapped from nginx route: `^/v2/cloud/images/?$`\nBackend: `/cloud_api.php?api=cloud&action=images?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Deploy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"billingcycle\": \"\",\n  \"cloud\": \"\",\n  \"hostname\": \"\",\n  \"planid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/deploy",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"deploy"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `deploy`\n\nMapped from nginx route: `^/v2/cloud/deploy/?$`\nBackend: `/cloud_api.php?api=cloud&action=deploy?`\n\nBody parameters detected from handler source:\n- `billingcycle`\n- `cloud`\n- `hostname`\n- `planid`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Deploy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"billingcycle\": \"\",\n  \"cloud\": \"\",\n  \"hostname\": \"\",\n  \"planid\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/vpn/deploy?vpn_deploy=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"vpn",
+										"deploy"
+									],
+									"query": [
+										{
+											"key": "vpn_deploy",
+											"value": "1"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `deploy`\n\nMapped from nginx route: `^/v2/vpn/deploy/?$`\nBackend: `/cloud_api.php?api=cloud&action=deploy&vpn_deploy=1?`\n\nBody parameters detected from handler source:\n- `billingcycle`\n- `cloud`\n- `hostname`\n- `planid`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Imagesbydistro",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/imagesbydistro",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"imagesbydistro"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `imagesbydistro`\n\nMapped from nginx route: `^/v2/cloud/imagesbydistro/?$`\nBackend: `/cloud_api.php?api=cloud&action=imagesbydistro?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Getdistro",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/getdistro",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"getdistro"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `getdistro`\n\nMapped from nginx route: `^/v2/cloud/getdistro/?$`\nBackend: `/cloud_api.php?api=cloud&action=getdistro?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Getimageslist",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/getimageslist/:distro",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"getimageslist",
+										":distro"
+									],
+									"variable": [
+										{
+											"key": "distro",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `getimageslist`\n\nMapped from nginx route: `^/v2/cloud/getimageslist/([^/]+)/?$`\nBackend: `/cloud_api.php?api=cloud&action=getimageslist&distro=$1`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Clouddetails",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `clouddetails`\n\nMapped from nginx route: `^/v2/cloud/?$`\nBackend: `/cloud_api.php?api=cloud&action=clouddetails?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Clouddetails",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `clouddetails`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=clouddetails?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Plans",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/plans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"plans"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `plans`\n\nMapped from nginx route: `^/v2/cloud/plans/?$`\nBackend: `/cloud_api.php?api=cloud&action=plans`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Plans",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/plans/windows?windowsplan=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"plans",
+										"windows"
+									],
+									"query": [
+										{
+											"key": "windowsplan",
+											"value": "1"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `plans`\n\nMapped from nginx route: `^/v2/cloud/plans/windows/?$`\nBackend: `/cloud_api.php?api=cloud&action=plans&windowsplan=1`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Plans",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/plans/snapshot/:snapshotid?snapshotplan=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"plans",
+										"snapshot",
+										":snapshotid"
+									],
+									"query": [
+										{
+											"key": "snapshotplan",
+											"value": "1"
+										}
+									],
+									"variable": [
+										{
+											"key": "snapshotid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `plans`\n\nMapped from nginx route: `^/v2/cloud/plans/snapshot/([^/]+)/?$`\nBackend: `/cloud_api.php?api=cloud&action=plans&snapshotplan=1&snapshotid=$1`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Plans",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/plans/backup/:backupid?backupplan=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"plans",
+										"backup",
+										":backupid"
+									],
+									"query": [
+										{
+											"key": "backupplan",
+											"value": "1"
+										}
+									],
+									"variable": [
+										{
+											"key": "backupid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `plans`\n\nMapped from nginx route: `^/v2/cloud/plans/backup/([^/]+)/?$`\nBackend: `/cloud_api.php?api=cloud&action=plans&backupplan=1&backupid=$1`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Resizeplans",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/resizeplans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"resizeplans"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `resizeplans`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/resizeplans/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=resizeplans`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Resize",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"plan\": \"\",\n  \"type\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/resize",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"resize"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `resize`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/resize/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=resize?`\n\nBody parameters detected from handler source:\n- `plan`\n- `type`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Addstorage",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"cardid\": \"\",\n  \"name\": \"\",\n  \"size\": \"\",\n  \"write\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/storage/add",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"storage",
+										"add"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `addstorage`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/storage/add/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=addstorage?`\n\nBody parameters detected from handler source:\n- `amount`\n- `cardid`\n- `name`\n- `size`\n- `write`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Deletestorage",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/storage/:storageid/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"storage",
+										":storageid",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "storageid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `deletestorage`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/storage/([^/]+)/delete/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=deletestorage&storageid=$2?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Dczones",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/dczones",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"dczones"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `dczones`\n\nMapped from nginx route: `^/v2/dczones/?$`\nBackend: `/cloud_api.php?api=cloud&action=dczones`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Getdeploy",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/getdeploy",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"getdeploy"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `getdeploy`\n\nMapped from nginx route: `^/v2/cloud/getdeploy/?$`\nBackend: `/cloud_api.php?api=cloud&action=getdeploy`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Getdeployopen",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/getdeployopen",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										"getdeployopen"
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `getdeployopen`\n\nMapped from nginx route: `^/v2/cloud/getdeployopen/?$`\nBackend: `/cloud_api.php?api=cloud&action=getdeployopen`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Rebuild",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirm\": \"\",\n  \"image\": \"\",\n  \"stack\": \"\",\n  \"stack_fields\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/rebuild",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"rebuild"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `rebuild`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/rebuild/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=rebuild`\n\nBody parameters detected from handler source:\n- `confirm`\n- `image`\n- `stack`\n- `stack_fields`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Disablerescue",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"cardid\": \"\",\n  \"code\": \"\",\n  \"name\": \"\",\n  \"write\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/disablerescue",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"disablerescue"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `disablerescue`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/disablerescue/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=disablerescue`\n\nBody parameters detected from handler source:\n- `amount`\n- `cardid`\n- `code`\n- `name`\n- `write`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Enablerescue",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": \"\",\n  \"cardid\": \"\",\n  \"code\": \"\",\n  \"name\": \"\",\n  \"write\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/enablerescue",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"enablerescue"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `enablerescue`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/enablerescue/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=enablerescue`\n\nBody parameters detected from handler source:\n- `amount`\n- `cardid`\n- `code`\n- `name`\n- `write`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Mountiso",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"iso\": \"\",\n  \"rdns\": \"\",\n  \"twofa\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/mountiso",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"mountiso"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `mountiso`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/mountiso/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=mountiso`\n\nBody parameters detected from handler source:\n- `iso`\n- `rdns`\n- `twofa`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Umountiso",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/umountiso",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"umountiso"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `umountiso`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/umountiso/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=umountiso`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Addprivateip",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dcslug\": \"\",\n  \"name\": \"\",\n  \"url\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/assignprivateip",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"assignprivateip"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `addprivateip`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/assignprivateip/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=addprivateip`\n\nBody parameters detected from handler source:\n- `dcslug`\n- `name`\n- `url`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Assignvpcip",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/assignvpcip/:vpcid",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"assignvpcip",
+										":vpcid"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "vpcid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `assignvpcip`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/assignvpcip/([^/]+)/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=assignvpcip&vpcid=$2`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Enablepublicip",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/enablepublicip",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"enablepublicip"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `enablepublicip`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/enablepublicip/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=enablepublicip`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Disablepublicip",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/disablepublicip",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"disablepublicip"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `disablepublicip`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/disablepublicip/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=disablepublicip`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Addpublicip",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/assignpublicip",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"assignpublicip"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `addpublicip`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/assignpublicip/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=addpublicip`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Updaterdns",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"app_base_auth\": \"\",\n  \"rdns\": \"\",\n  \"twofa\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/updaterdns/:ip",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"updaterdns",
+										":ip"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "ip",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `updaterdns`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/updaterdns/([^/]+)/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=updaterdns&ip=$2`\n\nBody parameters detected from handler source:\n- `app_base_auth`\n- `rdns`\n- `twofa`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Deleteip",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/ip/:ip/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"ip",
+										":ip",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "ip",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `deleteip`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/ip/([^/]+)/delete/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=deleteip&ip=$2`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Resetpassword",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"managed\": \"\",\n  \"size\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/resetpassword",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"resetpassword"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `resetpassword`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/resetpassword/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=resetpassword`\n\nBody parameters detected from handler source:\n- `managed`\n- `size`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Poweroff",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"bus\": \"\",\n  \"type\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/poweroff",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"poweroff"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `poweroff`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/poweroff/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=poweroff`\n\nBody parameters detected from handler source:\n- `bus`\n- `type`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Shutdown",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/shutdown",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"shutdown"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `shutdown`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/shutdown/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=shutdown`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Powercycle",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/powercycle",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"powercycle"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `powercycle`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/powercycle/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=powercycle`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Hardreboot",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/hardreboot",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"hardreboot"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `hardreboot`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/hardreboot/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=hardreboot`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Createinvoice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dcslug\": \"\",\n  \"name\": \"\",\n  \"url\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/createinvoice",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"createinvoice"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `createinvoice`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/createinvoice/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=createinvoice`\n\nBody parameters detected from handler source:\n- `dcslug`\n- `name`\n- `url`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Poweron",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"client\": \"\",\n  \"dst_port\": \"\",\n  \"dst_proto\": \"\",\n  \"frontend_id\": \"\",\n  \"src_port\": \"\",\n  \"src_proto\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/poweron",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"poweron"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `poweron`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/poweron/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=poweron`\n\nBody parameters detected from handler source:\n- `client`\n- `dst_port`\n- `dst_proto`\n- `frontend_id`\n- `src_port`\n- `src_proto`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirm\": \"\",\n  \"confirm_name\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/destroy",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"destroy"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `destroy`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/destroy/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=destroy`\n\nBody parameters detected from handler source:\n- `confirm`\n- `confirm_name`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Enablemanaged",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"managed\": \"\",\n  \"size\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/enablemanaged",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"enablemanaged"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `enablemanaged`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/enablemanaged/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=enablemanaged`\n\nBody parameters detected from handler source:\n- `managed`\n- `size`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Disablemanaged",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"size\": \"\",\n  \"write\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/disablemanaged",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"disablemanaged"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `disablemanaged`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/disablemanaged/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=disablemanaged`\n\nBody parameters detected from handler source:\n- `size`\n- `write`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Backupenable",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"plan\": \"\",\n  \"type\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/backups/enable",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"backups",
+										"enable"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `backupenable`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/backups/enable/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=backupenable`\n\nBody parameters detected from handler source:\n- `plan`\n- `type`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Backupdisable",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"plan\": \"\",\n  \"type\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/backups/disable",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"backups",
+										"disable"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `backupdisable`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/backups/disable/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=backupdisable`\n\nBody parameters detected from handler source:\n- `plan`\n- `type`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Statistics",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/statistics/:subaction/:period",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"statistics",
+										":subaction",
+										":period"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "subaction",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "period",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `statistics`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/statistics/([^/]+)/([^/]+)/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=statistics&subaction=$2&period=$3?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Statistics",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/statistics/bandwidth?subaction=bandwidth",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"statistics",
+										"bandwidth"
+									],
+									"query": [
+										{
+											"key": "subaction",
+											"value": "bandwidth"
+										}
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `statistics`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/statistics/bandwidth/?$`\nBackend: `/cloud_api.php?api=cloud&cloudid=$1&action=statistics&subaction=bandwidth&period=$2?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Attach elasticip",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/elasticip/:elasticip/attach",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"elasticip",
+										":elasticip",
+										"attach"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "elasticip",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `attach_elasticip`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/elasticip/([^/]+)/attach/?$`\nBackend: `/cloud_api.php?api=cloud&action=attach_elasticip&cloudid=$1&elasticip=$2?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Detach elasticip",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/elasticip/:elasticip/detach",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"elasticip",
+										":elasticip",
+										"detach"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "elasticip",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `cloud`   |   **Action**: `detach_elasticip`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/elasticip/([^/]+)/detach/?$`\nBackend: `/cloud_api.php?api=cloud&action=detach_elasticip&cloudid=$1&elasticip=$2?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `cloud` (56 endpoints)"
+				},
+				{
+					"name": "cloudimages",
+					"item": [
+						{
+							"name": "[GET] Images",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/images",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"images"
+									]
+								},
+								"description": "**API**: `cloudimages`   |   **Action**: `images`\n\nMapped from nginx route: `^/v2/images/?$`\nBackend: `/cloud_api.php?api=cloudimages&action=images?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `cloudimages` (1 endpoints)"
+				},
+				{
+					"name": "customer",
+					"item": [
+						{
+							"name": "[GET] List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/customer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"customer"
+									]
+								},
+								"description": "**API**: `customer`   |   **Action**: `list`\n\nMapped from nginx route: `^/v2/customer/?$`\nBackend: `/cloud_api.php?api=customer&action=list?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Pricing",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/pricing",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"pricing"
+									]
+								},
+								"description": "**API**: `customer`   |   **Action**: `pricing`\n\nMapped from nginx route: `^/v2/pricing/?$`\nBackend: `/cloud_api.php?api=customer&action=pricing?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `customer` (2 endpoints)"
+				},
+				{
+					"name": "gpu",
+					"item": [
+						{
+							"name": "[GET] List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/gpu/:cloudid",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"gpu",
+										":cloudid"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `gpu`   |   **Action**: `list`\n\nMapped from nginx route: `^/v2/gpu/([^/]+)/?$`\nBackend: `/cloud_api.php?api=gpu&cloudid=$1&action=list?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Listall",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/gpu",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"gpu"
+									]
+								},
+								"description": "**API**: `gpu`   |   **Action**: `listall`\n\nMapped from nginx route: `^/v2/gpu/?$`\nBackend: `/cloud_api.php?api=gpu&action=listall?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `gpu` (2 endpoints)"
+				},
+				{
+					"name": "image",
+					"item": [
+						{
+							"name": "[POST] Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dcslug\": \"\",\n  \"name\": \"\",\n  \"url\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/image/add",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"image",
+										"add"
+									]
+								},
+								"description": "**API**: `image`   |   **Action**: `add`\n\nMapped from nginx route: `^/v2/image/add/?$`\nBackend: `/cloud_api.php?api=image&action=add?`\n\nBody parameters detected from handler source:\n- `dcslug`\n- `name`\n- `url`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `image` (1 endpoints)"
+				},
+				{
+					"name": "iso",
+					"item": [
+						{
+							"name": "[POST] Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dcslug\": \"\",\n  \"name\": \"\",\n  \"url\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/iso/add",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"iso",
+										"add"
+									]
+								},
+								"description": "**API**: `iso`   |   **Action**: `add`\n\nMapped from nginx route: `^/v2/iso/add/?$`\nBackend: `/cloud_api.php?api=iso&action=add?`\n\nBody parameters detected from handler source:\n- `dcslug`\n- `name`\n- `url`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `iso` (1 endpoints)"
+				},
+				{
+					"name": "plan",
+					"item": [
+						{
+							"name": "[GET] Plans",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/plans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"plans"
+									]
+								},
+								"description": "**API**: `plan`   |   **Action**: `plans`\n\nMapped from nginx route: `^/v2/plans/?$`\nBackend: `/cloud_api.php?api=plan&action=plans?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Dedicated",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/plans/dedicated",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"plans",
+										"dedicated"
+									]
+								},
+								"description": "**API**: `plan`   |   **Action**: `dedicated`\n\nMapped from nginx route: `^/v2/plans/dedicated/?$`\nBackend: `/cloud_api.php?api=plan&action=dedicated?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Mail",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/plans/mail",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"plans",
+										"mail"
+									]
+								},
+								"description": "**API**: `plan`   |   **Action**: `mail`\n\nMapped from nginx route: `^/v2/plans/mail/?$`\nBackend: `/cloud_api.php?api=plan&action=mail?`"
+							},
+							"response": []
+						},
+						{
+							"name": "[GET] Custom",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/plans/:planType/:dcslug",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"plans",
+										":planType",
+										":dcslug"
+									],
+									"variable": [
+										{
+											"key": "planType",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "dcslug",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `plan`   |   **Action**: `custom`\n\nMapped from nginx route: `^/v2/plans/([^/]+)/([^/]+)/?$`\nBackend: `/cloud_api.php?api=plan&planType=$1&dcslug=$2&action=custom?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `plan` (4 endpoints)"
+				},
+				{
+					"name": "planimport",
+					"item": [
+						{
+							"name": "[GET] Plans",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/plansimport",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"plansimport"
+									]
+								},
+								"description": "**API**: `planimport`   |   **Action**: `plans`\n\nMapped from nginx route: `^/v2/plansimport/?$`\nBackend: `/cloud_api.php?api=planimport&action=plans?`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `planimport` (1 endpoints)"
+				},
+				{
+					"name": "plans",
+					"item": [
+						{
+							"name": "[GET] Plans (root)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/plans/cloud?plan=cloud",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"plans",
+										"cloud"
+									],
+									"query": [
+										{
+											"key": "plan",
+											"value": "cloud"
+										}
+									]
+								},
+								"description": "**API**: `plans`   |   **Action**: `(default)`\n\nMapped from nginx route: `^/v2/plans/cloud/?$`\nBackend: `/cloud_api.php?api=plans&plan=cloud`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `plans` (1 endpoints)"
+				},
+				{
+					"name": "snapshot",
+					"item": [
+						{
+							"name": "[POST] Create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/snapshot/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"snapshot",
+										"create"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `snapshot`   |   **Action**: `create`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/snapshot/create/?$`\nBackend: `/cloud_api.php?api=snapshot&cloudid=$1&action=create`"
+							},
+							"response": []
+						},
+						{
+							"name": "[DELETE] Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"confirm\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/snapshot/:snapshotid/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"snapshot",
+										":snapshotid",
+										"delete"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "snapshotid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `snapshot`   |   **Action**: `delete`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/snapshot/([0-9]+)/delete/?$`\nBackend: `/cloud_api.php?api=snapshot&cloudid=$1&snapshotid=$2&action=delete`\n\nBody parameters detected from handler source:\n- `confirm`"
+							},
+							"response": []
+						},
+						{
+							"name": "[POST] Restore",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{api_key}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/v2/cloud/:cloudid/snapshot/:snapshotid/restore",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v2",
+										"cloud",
+										":cloudid",
+										"snapshot",
+										":snapshotid",
+										"restore"
+									],
+									"variable": [
+										{
+											"key": "cloudid",
+											"value": "",
+											"description": "Path variable"
+										},
+										{
+											"key": "snapshotid",
+											"value": "",
+											"description": "Path variable"
+										}
+									]
+								},
+								"description": "**API**: `snapshot`   |   **Action**: `restore`\n\nMapped from nginx route: `^/v2/cloud/([0-9]+)/snapshot/([0-9]+)/restore/?$`\nBackend: `/cloud_api.php?api=snapshot&cloudid=$1&snapshotid=$2&action=restore`\n\nBody parameters detected from handler source:\n- `name`"
+							},
+							"response": []
+						}
+					],
+					"description": "API group: `snapshot` (3 endpoints)"
+				}
+			]
+		},
+		{
+			"name": "Container Registry",
+			"item": []
+		},
+		{
+			"name": "Databases",
+			"item": []
+		},
+		{
+			"name": "DNS",
+			"item": []
+		},
+		{
+			"name": "EBS",
+			"item": []
+		},
+		{
+			"name": "Elastic IP",
+			"item": []
+		},
+		{
+			"name": "FaaS Functions",
+			"item": []
+		},
+		{
+			"name": "Firewall",
+			"item": []
+		},
+		{
+			"name": "IPSec",
+			"item": []
+		},
+		{
+			"name": "Kubernetes",
+			"item": []
+		},
+		{
+			"name": "Load Balancer",
+			"item": []
+		},
+		{
+			"name": "Mail",
+			"item": []
+		},
+		{
+			"name": "Meta and Misc",
+			"item": []
+		},
+		{
+			"name": "Monitoring",
+			"item": []
+		},
+		{
+			"name": "Object Storage",
+			"item": []
+		},
+		{
+			"name": "Public App API",
+			"item": []
+		},
+		{
+			"name": "Reseller Partner",
+			"item": []
+		},
+		{
+			"name": "SQS",
+			"item": []
+		},
+		{
+			"name": "SSL Certificates",
+			"item": []
+		},
+		{
+			"name": "Stack Scripts",
+			"item": []
+		},
+		{
+			"name": "Support",
+			"item": []
+		},
+		{
+			"name": "Tally VPN",
+			"item": []
+		},
+		{
+			"name": "VPC",
+			"item": []
+		},
+		{
+			"name": "VPN",
+			"item": []
+		},
+		{
+			"name": "WAF",
+			"item": []
+		}
+	]
+}
