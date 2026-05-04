@@ -1,0 +1,6861 @@
+openapi: 3.0.0
+info:
+  title: UthoConsole - API
+  version: 1.0.0
+servers:
+  - url: http://{{base_url}}
+tags:
+  - name: Account and Auth
+  - name: Account and Auth > 2fa
+    description: 'API group: `2fa` (2 endpoints)'
+  - name: Account and Auth > access
+    description: 'API group: `access` (1 endpoints)'
+  - name: Account and Auth > account
+    description: 'API group: `account` (39 endpoints)'
+  - name: Account and Auth > accountplatform
+    description: 'API group: `accountplatform` (1 endpoints)'
+  - name: Account and Auth > activesessions
+    description: 'API group: `activesessions` (1 endpoints)'
+  - name: Account and Auth > api
+    description: 'API group: `api` (3 endpoints)'
+  - name: Account and Auth > appauth
+    description: 'API group: `appauth` (1 endpoints)'
+  - name: Account and Auth > auth
+    description: 'API group: `auth` (2 endpoints)'
+  - name: Account and Auth > key
+    description: 'API group: `key` (4 endpoints)'
+  - name: Account and Auth > logout
+    description: 'API group: `logout` (1 endpoints)'
+  - name: Account and Auth > platform
+    description: 'API group: `platform` (1 endpoints)'
+  - name: Account and Auth > switchaccessm
+    description: 'API group: `switchaccessm` (1 endpoints)'
+  - name: Account and Auth > switchaccessselfm
+    description: 'API group: `switchaccessselfm` (1 endpoints)'
+  - name: Account and Auth > transfer
+    description: 'API group: `transfer` (2 endpoints)'
+  - name: Account and Auth > user
+    description: 'API group: `user` (4 endpoints)'
+  - name: Autoscaling
+  - name: Billing
+  - name: Billing > billing
+    description: 'API group: `billing` (11 endpoints)'
+  - name: Billing > invoice
+    description: 'API group: `invoice` (1 endpoints)'
+  - name: Billing > paymentgateway
+    description: 'API group: `paymentgateway` (3 endpoints)'
+  - name: Billing > razorpay
+    description: 'API group: `razorpay` (6 endpoints)'
+  - name: Billing > stripe
+    description: 'API group: `stripe` (6 endpoints)'
+  - name: Billing > tds
+    description: 'API group: `tds` (1 endpoints)'
+  - name: Cloud Servers
+  - name: Cloud Servers > backup
+    description: 'API group: `backup` (5 endpoints)'
+  - name: Cloud Servers > cloud
+    description: 'API group: `cloud` (56 endpoints)'
+  - name: Cloud Servers > cloudimages
+    description: 'API group: `cloudimages` (1 endpoints)'
+  - name: Cloud Servers > customer
+    description: 'API group: `customer` (2 endpoints)'
+  - name: Cloud Servers > gpu
+    description: 'API group: `gpu` (2 endpoints)'
+  - name: Cloud Servers > image
+    description: 'API group: `image` (1 endpoints)'
+  - name: Cloud Servers > iso
+    description: 'API group: `iso` (1 endpoints)'
+  - name: Cloud Servers > plan
+    description: 'API group: `plan` (4 endpoints)'
+  - name: Cloud Servers > planimport
+    description: 'API group: `planimport` (1 endpoints)'
+  - name: Cloud Servers > plans
+    description: 'API group: `plans` (1 endpoints)'
+  - name: Cloud Servers > snapshot
+    description: 'API group: `snapshot` (3 endpoints)'
+  - name: Container Registry
+  - name: Databases
+  - name: DNS
+  - name: EBS
+  - name: Elastic IP
+  - name: FaaS Functions
+  - name: Firewall
+  - name: IPSec
+  - name: Kubernetes
+  - name: Load Balancer
+  - name: Mail
+  - name: Meta and Misc
+  - name: Monitoring
+  - name: Object Storage
+  - name: Public App API
+  - name: Reseller Partner
+  - name: SQS
+  - name: SSL Certificates
+  - name: Stack Scripts
+  - name: Support
+  - name: Tally VPN
+  - name: VPC
+  - name: VPN
+  - name: WAF
+paths:
+  /v2/2fa:
+    get:
+      tags:
+        - Account and Auth > 2fa
+      summary: '[GET] 2fa'
+      description: |-
+        **API**: `2fa`   |   **Action**: `2fa`
+
+        Mapped from nginx route: `^/v2/2fa?$`
+        Backend: `/cloud_api.php?api=2fa&action=2fa`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/2fa/resend:
+    get:
+      tags:
+        - Account and Auth > 2fa
+      summary: '[GET] Resend'
+      description: |-
+        **API**: `2fa`   |   **Action**: `resend`
+
+        Mapped from nginx route: `^/v2/2fa/resend?$`
+        Backend: `/cloud_api.php?api=2fa&action=resend`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/amaccess:
+    get:
+      tags:
+        - Account and Auth > access
+      summary: '[GET] List'
+      description: |-
+        **API**: `access`   |   **Action**: `list`
+
+        Mapped from nginx route: `^/v2/amaccess/?$`
+        Backend: `/cloud_api.php?api=access&action=list?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/{app}/account/info:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Info'
+      description: |-
+        **API**: `account`   |   **Action**: `info`
+
+        Mapped from nginx route: `^/v2/([^/]+)/account/info/?$`
+        Backend: `/cloud_api.php?app=$1&api=account&action=info?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: app
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/2fa:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Update2fa'
+      description: |-
+        **API**: `account`   |   **Action**: `update2fa`
+
+        Mapped from nginx route: `^/v2/account/2fa/?$`
+        Backend: `/cloud_api.php?app=$1&api=account&action=update2fa?`
+
+        Body parameters detected from handler source:
+        - `app_base_auth`
+        - `managed`
+        - `twofa`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                app_base_auth: ''
+                managed: ''
+                twofa: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/profile:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Profile'
+      description: |-
+        **API**: `account`   |   **Action**: `profile`
+
+        Mapped from nginx route: `^/v2/account/profile/?$`
+        Backend: `/cloud_api.php?app=$1&api=account&action=profile?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/kyc:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Kyc'
+      description: |-
+        **API**: `account`   |   **Action**: `kyc`
+
+        Mapped from nginx route: `^/v2/account/kyc/?$`
+        Backend: `/cloud_api.php?api=account&action=kyc?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/kyc/{requestid}/status:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Kycstatus'
+      description: |-
+        **API**: `account`   |   **Action**: `kycstatus`
+
+        Mapped from nginx route: `^/v2/account/kyc/([^/]+)/status/?$`
+        Backend: `/cloud_api.php?api=account&requestid=$1&action=kycstatus?`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: requestid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/{userid}/kyc/handler:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Kycsave'
+      description: |-
+        **API**: `account`   |   **Action**: `kycsave`
+
+        Mapped from nginx route: `^/v2/account/([0-9]+)/kyc/handler/?$`
+        Backend: `/cloud_api.php?api=account&userid=$1&action=kycsave?`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: userid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/kyc/new:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Kycnew'
+      description: |-
+        **API**: `account`   |   **Action**: `kycnew`
+
+        Mapped from nginx route: `^/v2/account/kyc/new?$`
+        Backend: `/cloud_api.php?api=account&action=kycnew?`
+
+        Body parameters detected from handler source:
+        - `currency`
+        - `slug`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                currency: ''
+                slug: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/oauth:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Oauth'
+      description: |-
+        **API**: `account`   |   **Action**: `oauth`
+
+        Mapped from nginx route: `^/v2/oauth/?$`
+        Backend: `/cloud_api.php?api=account&action=oauth?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/applycoupon:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Applycoupon'
+      description: |-
+        **API**: `account`   |   **Action**: `applycoupon`
+
+        Mapped from nginx route: `^/v2/account/applycoupon/?$`
+        Backend: `/cloud_api.php?api=account&action=applycoupon?`
+
+        Body parameters detected from handler source:
+        - `coupon`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                coupon: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/info:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Info'
+      description: |-
+        **API**: `account`   |   **Action**: `info`
+
+        Mapped from nginx route: `^/v2/account/info/?$`
+        Backend: `/cloud_api.php?api=account&action=info?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/close:
+    delete:
+      tags:
+        - Account and Auth > account
+      summary: '[DELETE] Close'
+      description: |-
+        **API**: `account`   |   **Action**: `close`
+
+        Mapped from nginx route: `^/v2/account/close/?$`
+        Backend: `/cloud_api.php?api=account&action=close?`
+
+        Body parameters detected from handler source:
+        - `confirm`
+        - `confirm_name`
+        - `email`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/signup:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Signup'
+      description: |-
+        **API**: `account`   |   **Action**: `signup`
+
+        Mapped from nginx route: `^/v2/account/signup/?$`
+        Backend: `/cloud_api.php?api=account&action=signup?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/reset/password:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Resetpassword'
+      description: |-
+        **API**: `account`   |   **Action**: `resetpassword`
+
+        Mapped from nginx route: `^/v2/account/reset/password/?$`
+        Backend: `/cloud_api.php?api=account&action=resetpassword?`
+
+        Body parameters detected from handler source:
+        - `email`
+        - `password`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: ''
+                password: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/update/mobile/{mobilecc}:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Updatemobile'
+      description: |-
+        **API**: `account`   |   **Action**: `updatemobile`
+
+        Mapped from nginx route: `^/v2/account/update/mobile/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=account&action=updatemobile&mobilecc=$1?`
+
+        Body parameters detected from handler source:
+        - `mobile`
+        - `mobilecc`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                mobile: ''
+                mobilecc: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: mobilecc
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/update/mobile:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Updatemobile'
+      description: |-
+        **API**: `account`   |   **Action**: `updatemobile`
+
+        Mapped from nginx route: `^/v2/account/update/mobile/?$`
+        Backend: `/cloud_api.php?api=account&action=updatemobile&mobilecc=$1?`
+
+        Body parameters detected from handler source:
+        - `mobile`
+        - `mobilecc`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                mobile: ''
+                mobilecc: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/otp/verify:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Otpverify'
+      description: |-
+        **API**: `account`   |   **Action**: `otpverify`
+
+        Mapped from nginx route: `^/v2/account/otp/verify/?$`
+        Backend: `/cloud_api.php?api=account&action=otpverify?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/otp/sendotp:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Sendotp'
+      description: |-
+        **API**: `account`   |   **Action**: `sendotp`
+
+        Mapped from nginx route: `^/v2/account/otp/sendotp/?$`
+        Backend: `/cloud_api.php?api=account&action=sendotp?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `invoiceid`
+        - `otpcode`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                invoiceid: ''
+                otpcode: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/otp/resendtext:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Otpresendtext'
+      description: |-
+        **API**: `account`   |   **Action**: `otpresendtext`
+
+        Mapped from nginx route: `^/v2/account/otp/resendtext/?$`
+        Backend: `/cloud_api.php?api=account&action=otpresendtext?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/otp/resendvoice:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Otpresendvoice'
+      description: |-
+        **API**: `account`   |   **Action**: `otpresendvoice`
+
+        Mapped from nginx route: `^/v2/account/otp/resendvoice/?$`
+        Backend: `/cloud_api.php?api=account&action=otpresendvoice?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/update/password:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Updatepassword'
+      description: |-
+        **API**: `account`   |   **Action**: `updatepassword`
+
+        Mapped from nginx route: `^/v2/account/update/password/?$`
+        Backend: `/cloud_api.php?api=account&action=updatepassword?`
+
+        Body parameters detected from handler source:
+        - `coupon`
+        - `password`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                coupon: ''
+                password: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/update:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Update'
+      description: |-
+        **API**: `account`   |   **Action**: `update`
+
+        Mapped from nginx route: `^/v2/account/update/?$`
+        Backend: `/cloud_api.php?api=account&action=update?`
+
+        Body parameters detected from handler source:
+        - `address`
+        - `city`
+        - `company`
+        - `country`
+        - `currency`
+        - `email`
+        - `fullname`
+        - `gstnumber`
+        - `mobile`
+        - `mobilecc`
+        - `postcode`
+        - `singleinvoice`
+        - `state`
+        - `supportneed_businesstype`
+        - `supportneed_title`
+        - `supportneed_usecase`
+        - `type`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address: ''
+                city: ''
+                company: ''
+                country: ''
+                currency: ''
+                email: ''
+                fullname: ''
+                gstnumber: ''
+                mobile: ''
+                mobilecc: ''
+                postcode: ''
+                singleinvoice: ''
+                state: ''
+                supportneed_businesstype: ''
+                supportneed_title: ''
+                supportneed_usecase: ''
+                type: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/version/update:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] UpdateVerion'
+      description: |-
+        **API**: `account`   |   **Action**: `updateVerion`
+
+        Mapped from nginx route: `^/v2/account/version/update/?$`
+        Backend: `/cloud_api.php?api=account&action=updateVerion?`
+
+        Body parameters detected from handler source:
+        - `address`
+        - `city`
+        - `company`
+        - `country`
+        - `currency`
+        - `email`
+        - `fullname`
+        - `gstnumber`
+        - `mobile`
+        - `mobilecc`
+        - `postcode`
+        - `state`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                address: ''
+                city: ''
+                company: ''
+                country: ''
+                currency: ''
+                email: ''
+                fullname: ''
+                gstnumber: ''
+                mobile: ''
+                mobilecc: ''
+                postcode: ''
+                state: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/updateaffiliate/{affiliate_id}:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Updateaffiliate'
+      description: >-
+        **API**: `account`   |   **Action**: `updateaffiliate`
+
+
+        Mapped from nginx route: `^/v2/account/updateaffiliate/([0-9]+)/?$`
+
+        Backend:
+        `/cloud_api.php?api=account&action=updateaffiliate&affiliate_id=$1?`
+
+
+        Body parameters detected from handler source:
+
+        - `coupon`
+
+        - `managed`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                coupon: ''
+                managed: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: affiliate_id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/loginotp:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Loginotp'
+      description: |-
+        **API**: `account`   |   **Action**: `loginotp`
+
+        Mapped from nginx route: `^/v2/account/loginotp/?$`
+        Backend: `/cloud_api.php?api=account&action=loginotp?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/loginotpverify:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Verifyloginotp'
+      description: |-
+        **API**: `account`   |   **Action**: `verifyloginotp`
+
+        Mapped from nginx route: `^/v2/account/loginotpverify/?$`
+        Backend: `/cloud_api.php?api=account&action=verifyloginotp?`
+
+        Body parameters detected from handler source:
+        - `currency`
+        - `email`
+        - `otp`
+        - `slug`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                currency: ''
+                email: ''
+                otp: ''
+                slug: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/iso:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Iso'
+      description: |-
+        **API**: `account`   |   **Action**: `iso`
+
+        Mapped from nginx route: `^/v2/iso/?$`
+        Backend: `/cloud_api.php?api=account&action=iso?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/iso/{dc}:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Iso'
+      description: |-
+        **API**: `account`   |   **Action**: `iso`
+
+        Mapped from nginx route: `^/v2/iso/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=account&action=iso&dc=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: dc
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/iso/{file}/delete:
+    delete:
+      tags:
+        - Account and Auth > account
+      summary: '[DELETE] Deleteiso'
+      description: |-
+        **API**: `account`   |   **Action**: `deleteiso`
+
+        Mapped from nginx route: `^/v2/iso/([^/]+)/delete/?$`
+        Backend: `/cloud_api.php?api=account&action=deleteiso&file=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: file
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/image:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Image'
+      description: |-
+        **API**: `account`   |   **Action**: `image`
+
+        Mapped from nginx route: `^/v2/image/?$`
+        Backend: `/cloud_api.php?api=account&action=image?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/image/{dc}:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Image'
+      description: |-
+        **API**: `account`   |   **Action**: `image`
+
+        Mapped from nginx route: `^/v2/image/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=account&action=image&dc=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: dc
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/image/{file}/delete:
+    delete:
+      tags:
+        - Account and Auth > account
+      summary: '[DELETE] Deleteimage'
+      description: |-
+        **API**: `account`   |   **Action**: `deleteimage`
+
+        Mapped from nginx route: `^/v2/image/([^/]+)/delete/?$`
+        Backend: `/cloud_api.php?api=account&action=deleteimage&file=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: file
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/snapshot:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Snapshot'
+      description: |-
+        **API**: `account`   |   **Action**: `snapshot`
+
+        Mapped from nginx route: `^/v2/snapshot/?$`
+        Backend: `/cloud_api.php?api=account&action=snapshot?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/snapshot/{dc}:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Snapshot'
+      description: |-
+        **API**: `account`   |   **Action**: `snapshot`
+
+        Mapped from nginx route: `^/v2/snapshot/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=account&action=snapshot&dc=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: dc
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/backups:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Backups'
+      description: |-
+        **API**: `account`   |   **Action**: `backups`
+
+        Mapped from nginx route: `^/v2/backups/?$`
+        Backend: `/cloud_api.php?api=account&action=backups?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/backups/{dc}:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Backups'
+      description: |-
+        **API**: `account`   |   **Action**: `backups`
+
+        Mapped from nginx route: `^/v2/backups/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=account&action=backups&dc=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: dc
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/currency/{currency}:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Currency'
+      description: |-
+        **API**: `account`   |   **Action**: `currency`
+
+        Mapped from nginx route: `^/v2/currency/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=account&action=currency&currency=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: currency
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/hourlystats:
+    get:
+      tags:
+        - Account and Auth > account
+      summary: '[GET] Hourlystats'
+      description: |-
+        **API**: `account`   |   **Action**: `hourlystats`
+
+        Mapped from nginx route: `^/v2/hourlystats/?$`
+        Backend: `/cloud_api.php?api=account&action=hourlystats?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/coupon/{code}:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Getcoupon'
+      description: |-
+        **API**: `account`   |   **Action**: `getcoupon`
+
+        Mapped from nginx route: `^/v2/coupon/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=account&action=getcoupon&code=$1`
+
+        Body parameters detected from handler source:
+        - `code`
+        - `plan`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                code: ''
+                plan: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: code
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/coupon:
+    post:
+      tags:
+        - Account and Auth > account
+      summary: '[POST] Getcoupon'
+      description: |-
+        **API**: `account`   |   **Action**: `getcoupon`
+
+        Mapped from nginx route: `^/v2/coupon/?$`
+        Backend: `/cloud_api.php?api=account&action=getcoupon`
+
+        Body parameters detected from handler source:
+        - `code`
+        - `plan`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                code: ''
+                plan: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/{app}/accountplatform/info:
+    get:
+      tags:
+        - Account and Auth > accountplatform
+      summary: '[GET] Info'
+      description: |-
+        **API**: `accountplatform`   |   **Action**: `info`
+
+        Mapped from nginx route: `^/v2/([^/]+)/accountplatform/info/?$`
+        Backend: `/cloud_api.php?app=$1&api=accountplatform&action=info?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: app
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/activesessions:
+    get:
+      tags:
+        - Account and Auth > activesessions
+      summary: '[GET] Accountsessions'
+      description: |-
+        **API**: `activesessions`   |   **Action**: `accountsessions`
+
+        Mapped from nginx route: `^/v2/activesessions/?$`
+        Backend: `/cloud_api.php?api=activesessions&action=accountsessions?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/api:
+    get:
+      tags:
+        - Account and Auth > api
+      summary: '[GET] Info'
+      description: |-
+        **API**: `api`   |   **Action**: `info`
+
+        Mapped from nginx route: `^/v2/api/?$`
+        Backend: `/cloud_api.php?api=api&action=info?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/api/generate:
+    post:
+      tags:
+        - Account and Auth > api
+      summary: '[POST] Generate'
+      description: |-
+        **API**: `api`   |   **Action**: `generate`
+
+        Mapped from nginx route: `^/v2/api/generate/?$`
+        Backend: `/cloud_api.php?api=api&action=generate?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `cardid`
+        - `code`
+        - `currency`
+        - `gateway`
+        - `invoiceid`
+        - `name`
+        - `write`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                cardid: ''
+                code: ''
+                currency: ''
+                gateway: ''
+                invoiceid: ''
+                name: ''
+                write: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/api/{id}/delete:
+    delete:
+      tags:
+        - Account and Auth > api
+      summary: '[DELETE] Delete'
+      description: |-
+        **API**: `api`   |   **Action**: `delete`
+
+        Mapped from nginx route: `^/v2/api/([^/]+)/delete/?$`
+        Backend: `/cloud_api.php?api=api&action=delete&id=$1?`
+
+        Body parameters detected from handler source:
+        - `confirm`
+        - `id`
+        - `userid`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/appauth:
+    get:
+      tags:
+        - Account and Auth > appauth
+      summary: '[GET] Appauth (root)'
+      description: |-
+        **API**: `appauth`   |   **Action**: `(default)`
+
+        Mapped from nginx route: `^/v2/appauth/?$`
+        Backend: `/cloud_api.php?api=appauth?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/{app}/auth:
+    get:
+      tags:
+        - Account and Auth > auth
+      summary: '[GET] Login'
+      description: |-
+        **API**: `auth`   |   **Action**: `login`
+
+        Mapped from nginx route: `^/v2/([^/]+)/auth/?$`
+        Backend: `/cloud_api.php?app=$1&api=auth&action=login?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: app
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/auth:
+    get:
+      tags:
+        - Account and Auth > auth
+      summary: '[GET] Login'
+      description: |-
+        **API**: `auth`   |   **Action**: `login`
+
+        Mapped from nginx route: `^/v2/auth/?$`
+        Backend: `/cloud_api.php?api=auth&action=login?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/key:
+    get:
+      tags:
+        - Account and Auth > key
+      summary: '[GET] Info'
+      description: |-
+        **API**: `key`   |   **Action**: `info`
+
+        Mapped from nginx route: `^/v2/key/?$`
+        Backend: `/cloud_api.php?api=key&action=info?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/key/generate:
+    post:
+      tags:
+        - Account and Auth > key
+      summary: '[POST] Generate'
+      description: |-
+        **API**: `key`   |   **Action**: `generate`
+
+        Mapped from nginx route: `^/v2/key/generate/?$`
+        Backend: `/cloud_api.php?api=key&action=generate?`
+
+        Body parameters detected from handler source:
+        - `confirm`
+        - `image`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                confirm: ''
+                image: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/key/import:
+    post:
+      tags:
+        - Account and Auth > key
+      summary: '[POST] Import'
+      description: |-
+        **API**: `key`   |   **Action**: `import`
+
+        Mapped from nginx route: `^/v2/key/import/?$`
+        Backend: `/cloud_api.php?api=key&action=import?`
+
+        Body parameters detected from handler source:
+        - `confirm`
+        - `image`
+        - `name`
+        - `sshkey`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                confirm: ''
+                image: ''
+                name: ''
+                sshkey: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/key/{id}/delete:
+    delete:
+      tags:
+        - Account and Auth > key
+      summary: '[DELETE] Delete'
+      description: |-
+        **API**: `key`   |   **Action**: `delete`
+
+        Mapped from nginx route: `^/v2/key/([^/]+)/delete/?$`
+        Backend: `/cloud_api.php?api=key&action=delete&id=$1?`
+
+        Body parameters detected from handler source:
+        - `confirm`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/logout:
+    get:
+      tags:
+        - Account and Auth > logout
+      summary: '[GET] Logout'
+      description: |-
+        **API**: `logout`   |   **Action**: `logout`
+
+        Mapped from nginx route: `^/v2/logout/?$`
+        Backend: `/cloud_api.php?api=logout&action=logout?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/account/platform:
+    get:
+      tags:
+        - Account and Auth > platform
+      summary: '[GET] Platform'
+      description: |-
+        **API**: `platform`   |   **Action**: `platform`
+
+        Mapped from nginx route: `^/v2/account/platform/?$`
+        Backend: `/cloud_api.php?api=platform&action=platform?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/switchaccess/{id}:
+    get:
+      tags:
+        - Account and Auth > switchaccessm
+      summary: '[GET] Accessanotheraccount'
+      description: >-
+        **API**: `switchaccessm`   |   **Action**: `accessanotheraccount`
+
+
+        Mapped from nginx route: `^/v2/switchaccess/([^/]+)/?$`
+
+        Backend:
+        `/cloud_api.php?api=switchaccessm&id=$1&action=accessanotheraccount?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/switchaccessself/{id}:
+    get:
+      tags:
+        - Account and Auth > switchaccessselfm
+      summary: '[GET] Accessself'
+      description: |-
+        **API**: `switchaccessselfm`   |   **Action**: `accessself`
+
+        Mapped from nginx route: `^/v2/switchaccessself/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=switchaccessselfm&id=$1&action=accessself?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/transfer/process:
+    post:
+      tags:
+        - Account and Auth > transfer
+      summary: '[POST] Processtoken'
+      description: |-
+        **API**: `transfer`   |   **Action**: `processtoken`
+
+        Mapped from nginx route: `^/v2/transfer/process/?$`
+        Backend: `/cloud_api.php?api=transfer&action=processtoken?`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/transfer/{type}/{id}:
+    get:
+      tags:
+        - Account and Auth > transfer
+      summary: '[GET] Gettoken'
+      description: |-
+        **API**: `transfer`   |   **Action**: `gettoken`
+
+        Mapped from nginx route: `^/v2/transfer/([^/]+)/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=transfer&action=gettoken&type=$1&id=$2?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: type
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/activity:
+    get:
+      tags:
+        - Account and Auth > user
+      summary: '[GET] Activity'
+      description: |-
+        **API**: `user`   |   **Action**: `activity`
+
+        Mapped from nginx route: `^/v2/activity/?$`
+        Backend: `/cloud_api.php?api=user&action=activity?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/user/activate/{activationtoken}:
+    post:
+      tags:
+        - Account and Auth > user
+      summary: '[POST] Activate'
+      description: |-
+        **API**: `user`   |   **Action**: `activate`
+
+        Mapped from nginx route: `^/v2/user/activate/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=user&activationtoken=$1&action=activate?`
+
+        Body parameters detected from handler source:
+        - `code`
+        - `email`
+        - `otp`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                code: ''
+                email: ''
+                otp: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: activationtoken
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/user:
+    get:
+      tags:
+        - Account and Auth > user
+      summary: '[GET] Subusers'
+      description: |-
+        **API**: `user`   |   **Action**: `subusers`
+
+        Mapped from nginx route: `^/v2/user/?$`
+        Backend: `/cloud_api.php?api=user&action=subusers?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/user/{id}:
+    get:
+      tags:
+        - Account and Auth > user
+      summary: '[GET] Subusers'
+      description: |-
+        **API**: `user`   |   **Action**: `subusers`
+
+        Mapped from nginx route: `^/v2/user/([0-9]+)?$`
+        Backend: `/cloud_api.php?api=user&id=$1&action=subusers?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/payment/verify:
+    get:
+      tags:
+        - Billing > billing
+      summary: '[GET] Payment verify'
+      description: |-
+        **API**: `billing`   |   **Action**: `payment_verify`
+
+        Mapped from nginx route: `^/v2/billing/payment/verify/?$`
+        Backend: `/cloud_api.php?api=billing&action=payment_verify?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/tds:
+    get:
+      tags:
+        - Billing > billing
+      summary: '[GET] Tds'
+      description: |-
+        **API**: `billing`   |   **Action**: `tds`
+
+        Mapped from nginx route: `^/v2/billing/tds/?$`
+        Backend: `/cloud_api.php?api=billing&action=tds?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/bankdetails:
+    get:
+      tags:
+        - Billing > billing
+      summary: '[GET] Bankdetails'
+      description: |-
+        **API**: `billing`   |   **Action**: `bankdetails`
+
+        Mapped from nginx route: `^/v2/billing/bankdetails/?$`
+        Backend: `/cloud_api.php?api=billing&action=bankdetails?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/applycredit:
+    post:
+      tags:
+        - Billing > billing
+      summary: '[POST] Applycredit'
+      description: |-
+        **API**: `billing`   |   **Action**: `applycredit`
+
+        Mapped from nginx route: `^/v2/billing/applycredit/?$`
+        Backend: `/cloud_api.php?api=billing&action=applycredit?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `invoiceid`
+        - `otpcode`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                invoiceid: ''
+                otpcode: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing:
+    get:
+      tags:
+        - Billing > billing
+      summary: '[GET] Invoices'
+      description: |-
+        **API**: `billing`   |   **Action**: `invoices`
+
+        Mapped from nginx route: `^/v2/billing/?$`
+        Backend: `/cloud_api.php?api=billing&action=invoices?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/zohobilling:
+    get:
+      tags:
+        - Billing > billing
+      summary: '[GET] Zohoinvoices'
+      description: |-
+        **API**: `billing`   |   **Action**: `zohoinvoices`
+
+        Mapped from nginx route: `^/v2/zohobilling/?$`
+        Backend: `/cloud_api.php?api=billing&action=zohoinvoices?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/unbilled:
+    get:
+      tags:
+        - Billing > billing
+      summary: '[GET] Unbilledinvoices'
+      description: |-
+        **API**: `billing`   |   **Action**: `unbilledinvoices`
+
+        Mapped from nginx route: `^/v2/billing/unbilled/?$`
+        Backend: `/cloud_api.php?api=billing&action=unbilledinvoices?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/bankpayment:
+    get:
+      tags:
+        - Billing > billing
+      summary: '[GET] Bankpayment'
+      description: |-
+        **API**: `billing`   |   **Action**: `bankpayment`
+
+        Mapped from nginx route: `^/v2/billing/bankpayment/?$`
+        Backend: `/cloud_api.php?api=billing&action=bankpayment?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/addpayment:
+    post:
+      tags:
+        - Billing > billing
+      summary: '[POST] Addpayment'
+      description: |-
+        **API**: `billing`   |   **Action**: `addpayment`
+
+        Mapped from nginx route: `^/v2/billing/addpayment/?$`
+        Backend: `/cloud_api.php?api=billing&action=addpayment?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `base_amount`
+        - `currency`
+        - `gateway`
+        - `invoiceid`
+        - `platform`
+        - `transid`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                base_amount: ''
+                currency: ''
+                gateway: ''
+                invoiceid: ''
+                platform: ''
+                transid: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/addcredit:
+    post:
+      tags:
+        - Billing > billing
+      summary: '[POST] Addcredit'
+      description: |-
+        **API**: `billing`   |   **Action**: `addcredit`
+
+        Mapped from nginx route: `^/v2/billing/addcredit/?$`
+        Backend: `/cloud_api.php?api=billing&action=addcredit?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `base_amount`
+        - `currency`
+        - `gateway`
+        - `invoiceid`
+        - `platform`
+        - `transid`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                base_amount: ''
+                currency: ''
+                gateway: ''
+                invoiceid: ''
+                platform: ''
+                transid: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/{invoiceid}:
+    get:
+      tags:
+        - Billing > billing
+      summary: '[GET] View'
+      description: |-
+        **API**: `billing`   |   **Action**: `view`
+
+        Mapped from nginx route: `^/v2/billing/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=billing&action=view&invoiceid=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: invoiceid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/paywithcard/{invoiceid}:
+    get:
+      tags:
+        - Billing > invoice
+      summary: '[GET] Paywithcard'
+      description: |-
+        **API**: `invoice`   |   **Action**: `paywithcard`
+
+        Mapped from nginx route: `^/v2/paywithcard/([0-9]+)/?$`
+        Backend: `/cloud_api.php?api=invoice&action=paywithcard&invoiceid=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: invoiceid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/stripe/create_session:
+    get:
+      tags:
+        - Billing > paymentgateway
+      summary: '[GET] Stripe'
+      description: |-
+        **API**: `paymentgateway`   |   **Action**: `stripe`
+
+        Mapped from nginx route: `^/v2/billing/stripe/create_session/?$`
+        Backend: `/cloud_api.php?api=paymentgateway&action=stripe?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/paypal/create_session:
+    get:
+      tags:
+        - Billing > paymentgateway
+      summary: '[GET] Paypal'
+      description: |-
+        **API**: `paymentgateway`   |   **Action**: `paypal`
+
+        Mapped from nginx route: `^/v2/billing/paypal/create_session/?$`
+        Backend: `/cloud_api.php?api=paymentgateway&action=paypal?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/payu/initiate:
+    get:
+      tags:
+        - Billing > paymentgateway
+      summary: '[GET] Payu'
+      description: |-
+        **API**: `paymentgateway`   |   **Action**: `payu`
+
+        Mapped from nginx route: `^/v2/billing/payu/initiate/?$`
+        Backend: `/cloud_api.php?api=paymentgateway&action=payu?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/billing/upi-in:
+    get:
+      tags:
+        - Billing > razorpay
+      summary: '[GET] Razorpay (root)'
+      description: |-
+        **API**: `razorpay`   |   **Action**: `(default)`
+
+        Mapped from nginx route: `^/v2/billing/upi-in/?$`
+        Backend: `/cloud_api.php?api=razorpay?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/razorpay/addtoken:
+    post:
+      tags:
+        - Billing > razorpay
+      summary: '[POST] Addtoken'
+      description: |-
+        **API**: `razorpay`   |   **Action**: `addtoken`
+
+        Mapped from nginx route: `^/v2/razorpay/addtoken/?$`
+        Backend: `/cloud_api.php?api=razorpay&action=addtoken?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `invoiceid`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                invoiceid: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/razorpay/createorder:
+    post:
+      tags:
+        - Billing > razorpay
+      summary: '[POST] Createorder'
+      description: |-
+        **API**: `razorpay`   |   **Action**: `createorder`
+
+        Mapped from nginx route: `^/v2/razorpay/createorder/?$`
+        Backend: `/cloud_api.php?api=razorpay&action=createorder?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `invoiceid`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                invoiceid: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/razorpay/listcard:
+    get:
+      tags:
+        - Billing > razorpay
+      summary: '[GET] Listcard'
+      description: |-
+        **API**: `razorpay`   |   **Action**: `listcard`
+
+        Mapped from nginx route: `^/v2/razorpay/listcard/?$`
+        Backend: `/cloud_api.php?api=razorpay&action=listcard?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/razorpay/{cardid}/deletecard:
+    delete:
+      tags:
+        - Billing > razorpay
+      summary: '[DELETE] Deletecard'
+      description: |-
+        **API**: `razorpay`   |   **Action**: `deletecard`
+
+        Mapped from nginx route: `^/v2/razorpay/([0-9]+)/deletecard/?$`
+        Backend: `/cloud_api.php?api=razorpay&action=deletecard&cardid=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cardid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/addfund:
+    post:
+      tags:
+        - Billing > razorpay
+      summary: '[POST] Addfund'
+      description: |-
+        **API**: `razorpay`   |   **Action**: `addfund`
+
+        Mapped from nginx route: `^/v2/addfund/?$`
+        Backend: `/cloud_api.php?api=razorpay&action=addfund?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `cardid`
+        - `code`
+        - `currency`
+        - `gateway`
+        - `invoiceid`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                cardid: ''
+                code: ''
+                currency: ''
+                gateway: ''
+                invoiceid: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/addfundstripe:
+    post:
+      tags:
+        - Billing > stripe
+      summary: '[POST] Addfund'
+      description: |-
+        **API**: `stripe`   |   **Action**: `addfund`
+
+        Mapped from nginx route: `^/v2/addfundstripe/?$`
+        Backend: `/cloud_api.php?api=stripe&action=addfund?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `cardid`
+        - `code`
+        - `currency`
+        - `gateway`
+        - `invoiceid`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                cardid: ''
+                code: ''
+                currency: ''
+                gateway: ''
+                invoiceid: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/stripe/savecard/{id}:
+    post:
+      tags:
+        - Billing > stripe
+      summary: '[POST] Savecard'
+      description: |-
+        **API**: `stripe`   |   **Action**: `savecard`
+
+        Mapped from nginx route: `^/v2/stripe/savecard/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=stripe&action=savecard&id=$1?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `invoiceid`
+        - `otpcode`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                invoiceid: ''
+                otpcode: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/stripe/addtoken/{id}:
+    post:
+      tags:
+        - Billing > stripe
+      summary: '[POST] Addtoken'
+      description: |-
+        **API**: `stripe`   |   **Action**: `addtoken`
+
+        Mapped from nginx route: `^/v2/stripe/addtoken/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=stripe&action=addtoken&id=$1?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `invoiceid`
+        - `otpcode`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                invoiceid: ''
+                otpcode: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/stripe/listcard:
+    get:
+      tags:
+        - Billing > stripe
+      summary: '[GET] Listcard'
+      description: |-
+        **API**: `stripe`   |   **Action**: `listcard`
+
+        Mapped from nginx route: `^/v2/stripe/listcard/?$`
+        Backend: `/cloud_api.php?api=stripe&action=listcard?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/stripe/deletecard:
+    delete:
+      tags:
+        - Billing > stripe
+      summary: '[DELETE] Deletecard'
+      description: |-
+        **API**: `stripe`   |   **Action**: `deletecard`
+
+        Mapped from nginx route: `^/v2/stripe/deletecard/?$`
+        Backend: `/cloud_api.php?api=stripe&action=deletecard?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/stripe/{cardid}/deletecard:
+    delete:
+      tags:
+        - Billing > stripe
+      summary: '[DELETE] Deletecard'
+      description: |-
+        **API**: `stripe`   |   **Action**: `deletecard`
+
+        Mapped from nginx route: `^/v2/stripe/([0-9]+)/deletecard/?$`
+        Backend: `/cloud_api.php?api=stripe&action=deletecard&cardid=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cardid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/tds:
+    get:
+      tags:
+        - Billing > tds
+      summary: '[GET] Tds (root)'
+      description: |-
+        **API**: `tds`   |   **Action**: `(default)`
+
+        Mapped from nginx route: `^/v2/tds/?$`
+        Backend: `/cloud_api.php?api=tds?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/backup/{backupid}/delete:
+    delete:
+      tags:
+        - Cloud Servers > backup
+      summary: '[DELETE] Delete'
+      description: |-
+        **API**: `backup`   |   **Action**: `delete`
+
+        Mapped from nginx route: `^/v2/backup/([0-9]+)/delete/?$`
+        Backend: `/cloud_api.php?api=backup&backupid=$1&action=delete?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: backupid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/backup:
+    get:
+      tags:
+        - Cloud Servers > backup
+      summary: '[GET] Backuplist'
+      description: |-
+        **API**: `backup`   |   **Action**: `backuplist`
+
+        Mapped from nginx route: `^/v2/backup/?$`
+        Backend: `/cloud_api.php?api=backup&action=backuplist?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/backup/{backupid}:
+    get:
+      tags:
+        - Cloud Servers > backup
+      summary: '[GET] Backuplist'
+      description: |-
+        **API**: `backup`   |   **Action**: `backuplist`
+
+        Mapped from nginx route: `^/v2/backup/([0-9]+)/?$`
+        Backend: `/cloud_api.php?api=backup&action=backuplist&backupid=$1?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: backupid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/backup/{backupid}/restore:
+    post:
+      tags:
+        - Cloud Servers > backup
+      summary: '[POST] Restore'
+      description: >-
+        **API**: `backup`   |   **Action**: `restore`
+
+
+        Mapped from nginx route:
+        `^/v2/cloud/([0-9]+)/backup/([0-9]+)/restore/?$`
+
+        Backend:
+        `/cloud_api.php?api=backup&cloudid=$1&backupid=$2&action=restore?`
+
+
+        Body parameters detected from handler source:
+
+        - `name`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: backupid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/backup/{backupid}/delete:
+    delete:
+      tags:
+        - Cloud Servers > backup
+      summary: '[DELETE] Delete'
+      description: >-
+        **API**: `backup`   |   **Action**: `delete`
+
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/backup/([0-9]+)/delete/?$`
+
+        Backend:
+        `/cloud_api.php?api=backup&cloudid=$1&backupid=$2&action=delete?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: backupid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/storage/{id}/update:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Updatestorage'
+      description: >-
+        **API**: `cloud`   |   **Action**: `updatestorage`
+
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/storage/([^/]+)/update?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&action=updatestorage&cloudid=$1&id=$2?`
+
+
+        Body parameters detected from handler source:
+
+        - `bus`
+
+        - `type`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                bus: ''
+                type: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/bandwidth/{cycle}:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Bandwidth'
+      description: >-
+        **API**: `cloud`   |   **Action**: `bandwidth`
+
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/bandwidth/([^/]+)?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&action=bandwidth&cloudid=$1&cycle=$2?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: cycle
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/iscloudaccess/{cloudid}:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Iscloudaccess'
+      description: |-
+        **API**: `cloud`   |   **Action**: `iscloudaccess`
+
+        Mapped from nginx route: `^/v2/iscloudaccess/([0-9]+)/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=iscloudaccess?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/getbillingcycle:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Getbillingcycle'
+      description: |-
+        **API**: `cloud`   |   **Action**: `getbillingcycle`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/getbillingcycle/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=getbillingcycle?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/billingcycle:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Billingcycle'
+      description: |-
+        **API**: `cloud`   |   **Action**: `billingcycle`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/billingcycle/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=billingcycle?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/network/{ip}/createnat:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Create nat'
+      description: >-
+        **API**: `cloud`   |   **Action**: `create_nat`
+
+
+        Mapped from nginx route:
+        `^/v2/cloud/([0-9]+)/network/([^/]+)/createnat/?$`
+
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&ip=$2&action=create_nat?`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: ip
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/network/{ip}/deletenat:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Disablenat'
+      description: >-
+        **API**: `cloud`   |   **Action**: `disablenat`
+
+
+        Mapped from nginx route:
+        `^/v2/cloud/([0-9]+)/network/([^/]+)/deletenat/?$`
+
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&ip=$2&action=disablenat?`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: ip
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/name:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Updatename'
+      description: |-
+        **API**: `cloud`   |   **Action**: `updatename`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/name?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=updatename?`
+
+        Body parameters detected from handler source:
+        - `name`
+        - `plan`
+        - `type`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: ''
+                plan: ''
+                type: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/gpu:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Gpu'
+      description: |-
+        **API**: `cloud`   |   **Action**: `gpu`
+
+        Mapped from nginx route: `^/v2/cloud/([^/]+)/gpu/?$`
+        Backend: `/cloud_api.php?api=cloud&gpuid=$2&cloudid=$1&action=gpu?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/images:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Images'
+      description: |-
+        **API**: `cloud`   |   **Action**: `images`
+
+        Mapped from nginx route: `^/v2/cloud/images/?$`
+        Backend: `/cloud_api.php?api=cloud&action=images?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/deploy:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Deploy'
+      description: |-
+        **API**: `cloud`   |   **Action**: `deploy`
+
+        Mapped from nginx route: `^/v2/cloud/deploy/?$`
+        Backend: `/cloud_api.php?api=cloud&action=deploy?`
+
+        Body parameters detected from handler source:
+        - `billingcycle`
+        - `cloud`
+        - `hostname`
+        - `planid`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                billingcycle: ''
+                cloud: ''
+                hostname: ''
+                planid: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/vpn/deploy:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Deploy'
+      description: |-
+        **API**: `cloud`   |   **Action**: `deploy`
+
+        Mapped from nginx route: `^/v2/vpn/deploy/?$`
+        Backend: `/cloud_api.php?api=cloud&action=deploy&vpn_deploy=1?`
+
+        Body parameters detected from handler source:
+        - `billingcycle`
+        - `cloud`
+        - `hostname`
+        - `planid`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                billingcycle: ''
+                cloud: ''
+                hostname: ''
+                planid: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: vpn_deploy
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/imagesbydistro:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Imagesbydistro'
+      description: |-
+        **API**: `cloud`   |   **Action**: `imagesbydistro`
+
+        Mapped from nginx route: `^/v2/cloud/imagesbydistro/?$`
+        Backend: `/cloud_api.php?api=cloud&action=imagesbydistro?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/getdistro:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Getdistro'
+      description: |-
+        **API**: `cloud`   |   **Action**: `getdistro`
+
+        Mapped from nginx route: `^/v2/cloud/getdistro/?$`
+        Backend: `/cloud_api.php?api=cloud&action=getdistro?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/getimageslist/{distro}:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Getimageslist'
+      description: |-
+        **API**: `cloud`   |   **Action**: `getimageslist`
+
+        Mapped from nginx route: `^/v2/cloud/getimageslist/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=cloud&action=getimageslist&distro=$1`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: distro
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Clouddetails'
+      description: |-
+        **API**: `cloud`   |   **Action**: `clouddetails`
+
+        Mapped from nginx route: `^/v2/cloud/?$`
+        Backend: `/cloud_api.php?api=cloud&action=clouddetails?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Clouddetails'
+      description: |-
+        **API**: `cloud`   |   **Action**: `clouddetails`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=clouddetails?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/plans:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Plans'
+      description: |-
+        **API**: `cloud`   |   **Action**: `plans`
+
+        Mapped from nginx route: `^/v2/cloud/plans/?$`
+        Backend: `/cloud_api.php?api=cloud&action=plans`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/plans/windows:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Plans'
+      description: |-
+        **API**: `cloud`   |   **Action**: `plans`
+
+        Mapped from nginx route: `^/v2/cloud/plans/windows/?$`
+        Backend: `/cloud_api.php?api=cloud&action=plans&windowsplan=1`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: windowsplan
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/plans/snapshot/{snapshotid}:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Plans'
+      description: >-
+        **API**: `cloud`   |   **Action**: `plans`
+
+
+        Mapped from nginx route: `^/v2/cloud/plans/snapshot/([^/]+)/?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&action=plans&snapshotplan=1&snapshotid=$1`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: snapshotplan
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: snapshotid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/plans/backup/{backupid}:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Plans'
+      description: >-
+        **API**: `cloud`   |   **Action**: `plans`
+
+
+        Mapped from nginx route: `^/v2/cloud/plans/backup/([^/]+)/?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&action=plans&backupplan=1&backupid=$1`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: backupplan
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: backupid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/resizeplans:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Resizeplans'
+      description: |-
+        **API**: `cloud`   |   **Action**: `resizeplans`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/resizeplans/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=resizeplans`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/resize:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Resize'
+      description: |-
+        **API**: `cloud`   |   **Action**: `resize`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/resize/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=resize?`
+
+        Body parameters detected from handler source:
+        - `plan`
+        - `type`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                plan: ''
+                type: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/storage/add:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Addstorage'
+      description: |-
+        **API**: `cloud`   |   **Action**: `addstorage`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/storage/add/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=addstorage?`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `cardid`
+        - `name`
+        - `size`
+        - `write`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                cardid: ''
+                name: ''
+                size: ''
+                write: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/storage/{storageid}/delete:
+    delete:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[DELETE] Deletestorage'
+      description: >-
+        **API**: `cloud`   |   **Action**: `deletestorage`
+
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/storage/([^/]+)/delete/?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&cloudid=$1&action=deletestorage&storageid=$2?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: storageid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/dczones:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Dczones'
+      description: |-
+        **API**: `cloud`   |   **Action**: `dczones`
+
+        Mapped from nginx route: `^/v2/dczones/?$`
+        Backend: `/cloud_api.php?api=cloud&action=dczones`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/getdeploy:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Getdeploy'
+      description: |-
+        **API**: `cloud`   |   **Action**: `getdeploy`
+
+        Mapped from nginx route: `^/v2/cloud/getdeploy/?$`
+        Backend: `/cloud_api.php?api=cloud&action=getdeploy`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/getdeployopen:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Getdeployopen'
+      description: |-
+        **API**: `cloud`   |   **Action**: `getdeployopen`
+
+        Mapped from nginx route: `^/v2/cloud/getdeployopen/?$`
+        Backend: `/cloud_api.php?api=cloud&action=getdeployopen`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/rebuild:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Rebuild'
+      description: |-
+        **API**: `cloud`   |   **Action**: `rebuild`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/rebuild/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=rebuild`
+
+        Body parameters detected from handler source:
+        - `confirm`
+        - `image`
+        - `stack`
+        - `stack_fields`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                confirm: ''
+                image: ''
+                stack: ''
+                stack_fields: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/disablerescue:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Disablerescue'
+      description: |-
+        **API**: `cloud`   |   **Action**: `disablerescue`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/disablerescue/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=disablerescue`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `cardid`
+        - `code`
+        - `name`
+        - `write`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                cardid: ''
+                code: ''
+                name: ''
+                write: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/enablerescue:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Enablerescue'
+      description: |-
+        **API**: `cloud`   |   **Action**: `enablerescue`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/enablerescue/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=enablerescue`
+
+        Body parameters detected from handler source:
+        - `amount`
+        - `cardid`
+        - `code`
+        - `name`
+        - `write`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                amount: ''
+                cardid: ''
+                code: ''
+                name: ''
+                write: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/mountiso:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Mountiso'
+      description: |-
+        **API**: `cloud`   |   **Action**: `mountiso`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/mountiso/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=mountiso`
+
+        Body parameters detected from handler source:
+        - `iso`
+        - `rdns`
+        - `twofa`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                iso: ''
+                rdns: ''
+                twofa: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/umountiso:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Umountiso'
+      description: |-
+        **API**: `cloud`   |   **Action**: `umountiso`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/umountiso/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=umountiso`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/assignprivateip:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Addprivateip'
+      description: |-
+        **API**: `cloud`   |   **Action**: `addprivateip`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/assignprivateip/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=addprivateip`
+
+        Body parameters detected from handler source:
+        - `dcslug`
+        - `name`
+        - `url`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                dcslug: ''
+                name: ''
+                url: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/assignvpcip/{vpcid}:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Assignvpcip'
+      description: >-
+        **API**: `cloud`   |   **Action**: `assignvpcip`
+
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/assignvpcip/([^/]+)/?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&cloudid=$1&action=assignvpcip&vpcid=$2`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: vpcid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/enablepublicip:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Enablepublicip'
+      description: |-
+        **API**: `cloud`   |   **Action**: `enablepublicip`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/enablepublicip/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=enablepublicip`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/disablepublicip:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Disablepublicip'
+      description: |-
+        **API**: `cloud`   |   **Action**: `disablepublicip`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/disablepublicip/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=disablepublicip`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/assignpublicip:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Addpublicip'
+      description: |-
+        **API**: `cloud`   |   **Action**: `addpublicip`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/assignpublicip/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=addpublicip`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/updaterdns/{ip}:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Updaterdns'
+      description: |-
+        **API**: `cloud`   |   **Action**: `updaterdns`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/updaterdns/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=updaterdns&ip=$2`
+
+        Body parameters detected from handler source:
+        - `app_base_auth`
+        - `rdns`
+        - `twofa`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                app_base_auth: ''
+                rdns: ''
+                twofa: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: ip
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/ip/{ip}/delete:
+    delete:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[DELETE] Deleteip'
+      description: |-
+        **API**: `cloud`   |   **Action**: `deleteip`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/ip/([^/]+)/delete/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=deleteip&ip=$2`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: ip
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/resetpassword:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Resetpassword'
+      description: |-
+        **API**: `cloud`   |   **Action**: `resetpassword`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/resetpassword/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=resetpassword`
+
+        Body parameters detected from handler source:
+        - `managed`
+        - `size`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                managed: ''
+                size: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/poweroff:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Poweroff'
+      description: |-
+        **API**: `cloud`   |   **Action**: `poweroff`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/poweroff/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=poweroff`
+
+        Body parameters detected from handler source:
+        - `bus`
+        - `type`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                bus: ''
+                type: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/shutdown:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Shutdown'
+      description: |-
+        **API**: `cloud`   |   **Action**: `shutdown`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/shutdown/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=shutdown`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/powercycle:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Powercycle'
+      description: |-
+        **API**: `cloud`   |   **Action**: `powercycle`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/powercycle/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=powercycle`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/hardreboot:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Hardreboot'
+      description: |-
+        **API**: `cloud`   |   **Action**: `hardreboot`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/hardreboot/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=hardreboot`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/createinvoice:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Createinvoice'
+      description: |-
+        **API**: `cloud`   |   **Action**: `createinvoice`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/createinvoice/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=createinvoice`
+
+        Body parameters detected from handler source:
+        - `dcslug`
+        - `name`
+        - `url`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                dcslug: ''
+                name: ''
+                url: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/poweron:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Poweron'
+      description: |-
+        **API**: `cloud`   |   **Action**: `poweron`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/poweron/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=poweron`
+
+        Body parameters detected from handler source:
+        - `client`
+        - `dst_port`
+        - `dst_proto`
+        - `frontend_id`
+        - `src_port`
+        - `src_proto`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                client: ''
+                dst_port: ''
+                dst_proto: ''
+                frontend_id: ''
+                src_port: ''
+                src_proto: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/destroy:
+    delete:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[DELETE] Destroy'
+      description: |-
+        **API**: `cloud`   |   **Action**: `destroy`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/destroy/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=destroy`
+
+        Body parameters detected from handler source:
+        - `confirm`
+        - `confirm_name`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/enablemanaged:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Enablemanaged'
+      description: |-
+        **API**: `cloud`   |   **Action**: `enablemanaged`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/enablemanaged/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=enablemanaged`
+
+        Body parameters detected from handler source:
+        - `managed`
+        - `size`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                managed: ''
+                size: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/disablemanaged:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Disablemanaged'
+      description: |-
+        **API**: `cloud`   |   **Action**: `disablemanaged`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/disablemanaged/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=disablemanaged`
+
+        Body parameters detected from handler source:
+        - `size`
+        - `write`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                size: ''
+                write: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/backups/enable:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Backupenable'
+      description: |-
+        **API**: `cloud`   |   **Action**: `backupenable`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/backups/enable/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=backupenable`
+
+        Body parameters detected from handler source:
+        - `plan`
+        - `type`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                plan: ''
+                type: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/backups/disable:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Backupdisable'
+      description: |-
+        **API**: `cloud`   |   **Action**: `backupdisable`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/backups/disable/?$`
+        Backend: `/cloud_api.php?api=cloud&cloudid=$1&action=backupdisable`
+
+        Body parameters detected from handler source:
+        - `plan`
+        - `type`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                plan: ''
+                type: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/statistics/{subaction}/{period}:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Statistics'
+      description: >-
+        **API**: `cloud`   |   **Action**: `statistics`
+
+
+        Mapped from nginx route:
+        `^/v2/cloud/([0-9]+)/statistics/([^/]+)/([^/]+)/?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&cloudid=$1&action=statistics&subaction=$2&period=$3?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: subaction
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: period
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/statistics/bandwidth:
+    get:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[GET] Statistics'
+      description: >-
+        **API**: `cloud`   |   **Action**: `statistics`
+
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/statistics/bandwidth/?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&cloudid=$1&action=statistics&subaction=bandwidth&period=$2?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: subaction
+          in: query
+          schema:
+            type: string
+          example: bandwidth
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/elasticip/{elasticip}/attach:
+    post:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[POST] Attach elasticip'
+      description: >-
+        **API**: `cloud`   |   **Action**: `attach_elasticip`
+
+
+        Mapped from nginx route:
+        `^/v2/cloud/([0-9]+)/elasticip/([^/]+)/attach/?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&action=attach_elasticip&cloudid=$1&elasticip=$2?`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: elasticip
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/elasticip/{elasticip}/detach:
+    delete:
+      tags:
+        - Cloud Servers > cloud
+      summary: '[DELETE] Detach elasticip'
+      description: >-
+        **API**: `cloud`   |   **Action**: `detach_elasticip`
+
+
+        Mapped from nginx route:
+        `^/v2/cloud/([0-9]+)/elasticip/([^/]+)/detach/?$`
+
+        Backend:
+        `/cloud_api.php?api=cloud&action=detach_elasticip&cloudid=$1&elasticip=$2?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: elasticip
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/images:
+    get:
+      tags:
+        - Cloud Servers > cloudimages
+      summary: '[GET] Images'
+      description: |-
+        **API**: `cloudimages`   |   **Action**: `images`
+
+        Mapped from nginx route: `^/v2/images/?$`
+        Backend: `/cloud_api.php?api=cloudimages&action=images?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/customer:
+    get:
+      tags:
+        - Cloud Servers > customer
+      summary: '[GET] List'
+      description: |-
+        **API**: `customer`   |   **Action**: `list`
+
+        Mapped from nginx route: `^/v2/customer/?$`
+        Backend: `/cloud_api.php?api=customer&action=list?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/pricing:
+    get:
+      tags:
+        - Cloud Servers > customer
+      summary: '[GET] Pricing'
+      description: |-
+        **API**: `customer`   |   **Action**: `pricing`
+
+        Mapped from nginx route: `^/v2/pricing/?$`
+        Backend: `/cloud_api.php?api=customer&action=pricing?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/gpu/{cloudid}:
+    get:
+      tags:
+        - Cloud Servers > gpu
+      summary: '[GET] List'
+      description: |-
+        **API**: `gpu`   |   **Action**: `list`
+
+        Mapped from nginx route: `^/v2/gpu/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=gpu&cloudid=$1&action=list?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/gpu:
+    get:
+      tags:
+        - Cloud Servers > gpu
+      summary: '[GET] Listall'
+      description: |-
+        **API**: `gpu`   |   **Action**: `listall`
+
+        Mapped from nginx route: `^/v2/gpu/?$`
+        Backend: `/cloud_api.php?api=gpu&action=listall?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/image/add:
+    post:
+      tags:
+        - Cloud Servers > image
+      summary: '[POST] Add'
+      description: |-
+        **API**: `image`   |   **Action**: `add`
+
+        Mapped from nginx route: `^/v2/image/add/?$`
+        Backend: `/cloud_api.php?api=image&action=add?`
+
+        Body parameters detected from handler source:
+        - `dcslug`
+        - `name`
+        - `url`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                dcslug: ''
+                name: ''
+                url: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/iso/add:
+    post:
+      tags:
+        - Cloud Servers > iso
+      summary: '[POST] Add'
+      description: |-
+        **API**: `iso`   |   **Action**: `add`
+
+        Mapped from nginx route: `^/v2/iso/add/?$`
+        Backend: `/cloud_api.php?api=iso&action=add?`
+
+        Body parameters detected from handler source:
+        - `dcslug`
+        - `name`
+        - `url`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                dcslug: ''
+                name: ''
+                url: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/plans:
+    get:
+      tags:
+        - Cloud Servers > plan
+      summary: '[GET] Plans'
+      description: |-
+        **API**: `plan`   |   **Action**: `plans`
+
+        Mapped from nginx route: `^/v2/plans/?$`
+        Backend: `/cloud_api.php?api=plan&action=plans?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/plans/dedicated:
+    get:
+      tags:
+        - Cloud Servers > plan
+      summary: '[GET] Dedicated'
+      description: |-
+        **API**: `plan`   |   **Action**: `dedicated`
+
+        Mapped from nginx route: `^/v2/plans/dedicated/?$`
+        Backend: `/cloud_api.php?api=plan&action=dedicated?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/plans/mail:
+    get:
+      tags:
+        - Cloud Servers > plan
+      summary: '[GET] Mail'
+      description: |-
+        **API**: `plan`   |   **Action**: `mail`
+
+        Mapped from nginx route: `^/v2/plans/mail/?$`
+        Backend: `/cloud_api.php?api=plan&action=mail?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/plans/{planType}/{dcslug}:
+    get:
+      tags:
+        - Cloud Servers > plan
+      summary: '[GET] Custom'
+      description: |-
+        **API**: `plan`   |   **Action**: `custom`
+
+        Mapped from nginx route: `^/v2/plans/([^/]+)/([^/]+)/?$`
+        Backend: `/cloud_api.php?api=plan&planType=$1&dcslug=$2&action=custom?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: planType
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: dcslug
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/plansimport:
+    get:
+      tags:
+        - Cloud Servers > planimport
+      summary: '[GET] Plans'
+      description: |-
+        **API**: `planimport`   |   **Action**: `plans`
+
+        Mapped from nginx route: `^/v2/plansimport/?$`
+        Backend: `/cloud_api.php?api=planimport&action=plans?`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/plans/cloud:
+    get:
+      tags:
+        - Cloud Servers > plans
+      summary: '[GET] Plans (root)'
+      description: |-
+        **API**: `plans`   |   **Action**: `(default)`
+
+        Mapped from nginx route: `^/v2/plans/cloud/?$`
+        Backend: `/cloud_api.php?api=plans&plan=cloud`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: plan
+          in: query
+          schema:
+            type: string
+          example: cloud
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/snapshot/create:
+    post:
+      tags:
+        - Cloud Servers > snapshot
+      summary: '[POST] Create'
+      description: |-
+        **API**: `snapshot`   |   **Action**: `create`
+
+        Mapped from nginx route: `^/v2/cloud/([0-9]+)/snapshot/create/?$`
+        Backend: `/cloud_api.php?api=snapshot&cloudid=$1&action=create`
+      requestBody:
+        content: {}
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/snapshot/{snapshotid}/delete:
+    delete:
+      tags:
+        - Cloud Servers > snapshot
+      summary: '[DELETE] Delete'
+      description: >-
+        **API**: `snapshot`   |   **Action**: `delete`
+
+
+        Mapped from nginx route:
+        `^/v2/cloud/([0-9]+)/snapshot/([0-9]+)/delete/?$`
+
+        Backend:
+        `/cloud_api.php?api=snapshot&cloudid=$1&snapshotid=$2&action=delete`
+
+
+        Body parameters detected from handler source:
+
+        - `confirm`
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: snapshotid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /v2/cloud/{cloudid}/snapshot/{snapshotid}/restore:
+    post:
+      tags:
+        - Cloud Servers > snapshot
+      summary: '[POST] Restore'
+      description: >-
+        **API**: `snapshot`   |   **Action**: `restore`
+
+
+        Mapped from nginx route:
+        `^/v2/cloud/([0-9]+)/snapshot/([0-9]+)/restore/?$`
+
+        Backend:
+        `/cloud_api.php?api=snapshot&cloudid=$1&snapshotid=$2&action=restore`
+
+
+        Body parameters detected from handler source:
+
+        - `name`
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: ''
+      parameters:
+        - name: Authorization
+          in: header
+          schema:
+            type: string
+          example: Bearer {{api_key}}
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: cloudid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+        - name: snapshotid
+          in: path
+          schema:
+            type: string
+          required: true
+          description: Path variable
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
