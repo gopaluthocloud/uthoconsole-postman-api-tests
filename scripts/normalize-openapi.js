@@ -1,9 +1,6 @@
 const fs = require("fs");
 const yaml = require("js-yaml");
 
-/**
- * Load files
- */
 const openapiFile = "openapi.yaml";
 const envFile = "utho-environment.json";
 
@@ -11,7 +8,7 @@ const doc = yaml.load(fs.readFileSync(openapiFile, "utf8"));
 const env = JSON.parse(fs.readFileSync(envFile, "utf8"));
 
 /**
- * Extract environment variables
+ * Helper to get Postman env variable
  */
 const getVar = (key) => {
   const v = env.values.find((x) => x.key === key);
@@ -21,7 +18,7 @@ const getVar = (key) => {
 const baseUrl = getVar("base_url");
 
 /**
- * 1. Inject SERVERS (from Postman env)
+ * 1. Inject servers
  */
 doc.servers = [
   {
@@ -31,7 +28,7 @@ doc.servers = [
 ];
 
 /**
- * 2. REMOVE Authorization headers
+ * 2. Remove Authorization headers
  */
 for (const path in doc.paths) {
   for (const method in doc.paths[path]) {
@@ -50,7 +47,7 @@ for (const path in doc.paths) {
 }
 
 /**
- * 3. ADD GLOBAL AUTH
+ * 3. Add global auth
  */
 doc.components = doc.components || {};
 doc.components.securitySchemes = {
@@ -63,19 +60,18 @@ doc.components.securitySchemes = {
 doc.security = [{ bearerAuth: [] }];
 
 /**
- * 4. Cleanup URLs (replace {{base_url}})
+ * 4. Clean paths (remove base_url if present)
  */
+const newPaths = {};
 for (const path in doc.paths) {
-  const newPath = path.replace(baseUrl, "");
-  if (newPath !== path) {
-    doc.paths[newPath] = doc.paths[path];
-    delete doc.paths[path];
-  }
+  const cleanPath = path.replace(baseUrl, "");
+  newPaths[cleanPath] = doc.paths[path];
 }
+doc.paths = newPaths;
 
 /**
- * Save
+ * Save file
  */
 fs.writeFileSync(openapiFile, yaml.dump(doc, { noRefs: true }));
 
-console.log("✅ OpenAPI fully normalized using Postman environment");
+console.log("✅ OpenAPI normalized successfully");
