@@ -206,7 +206,7 @@
 							"response": []
 						},
 						{
-							"name": "[GET] Profile",
+							"name": "Profile",
 							"request": {
 								"method": "GET",
 								"header": [
