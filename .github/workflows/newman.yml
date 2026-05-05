@@ -18,26 +18,32 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 18
 
-      - name: Install Newman
-        run: npm install -g newman
+      - name: Install tools
+        run: |
+          npm install -g newman postman-to-openapi
+          npm install js-yaml
 
       - name: Run Postman tests
         run: |
           newman run collection.json -e utho-environment.json
 
-      - name: Convert to OpenAPI YAML
+      - name: Convert to OpenAPI
         run: |
-          npx postman-to-openapi collection.json -f openapi.yaml
+          postman-to-openapi collection.json openapi.yaml
+
+      - name: Normalize OpenAPI (ENV + AUTH FIX)
+        run: |
+          node scripts/normalize-openapi.js
 
       - name: Commit Swagger file
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add openapi.yaml
-          git diff --cached --quiet || git commit -m "Update OpenAPI spec"
+          git diff --cached --quiet || git commit -m "Auto अपडेट OpenAPI (env + auth fixed)"
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
